@@ -1,29 +1,36 @@
 import React from 'react';
+import { Outlet, Link } from 'react-router-dom';
 import instagram from '../images/instagram.svg';
 import twitter from '../images/twitter.svg';
 import youtube from '../images/youtube.svg';
 import shopping_cart from '../images/shopping-cart.svg';
 
-export default function Header() {
+export default function Header(props) {
+  const active = props.active;
+
   return (
-    <header className='bg-color-light-red'>
+    <header>
       <nav>
         <ul className='navbar'>
           <li className='title'>
             <h2>
-              <a href='#'>Redmond</a>
+              <Link to='/'>Redmond</Link>
             </h2>
           </li>
           <li className='link'>
-            <a className='active' href='#'>
+            <Link className={active == 'blog' ? 'active' : ''} to='/'>
               Blog
-            </a>
+            </Link>
           </li>
           <li className='link'>
-            <a href='#'>About</a>
+            <Link className={active == 'about' ? 'active' : ''} to='/about'>
+              About
+            </Link>
           </li>
           <li className='link'>
-            <a href='#'>Contact</a>
+            <Link className={active == 'contact' ? 'active' : ''} to='/contact'>
+              Contact
+            </Link>
           </li>
           <li className='link'>
             <a href='#'>Shop</a>
@@ -53,6 +60,7 @@ export default function Header() {
           </li>
         </ul>
       </nav>
+      <Outlet />
     </header>
   );
 }

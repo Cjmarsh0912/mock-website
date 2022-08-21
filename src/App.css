@@ -6,10 +6,12 @@
 
 body {
   font-family: 'Source Sans Pro', sans-serif;
+  background-color: #ffb4a2;
 }
 
 nav,
-section {
+section,
+.blog-header {
   padding: 1.5em;
   font-size: 1rem;
 }
@@ -19,8 +21,16 @@ a {
   color: black;
 }
 
-.bg-color-light-red {
-  background-color: #ffb4a2;
+p {
+  white-space: pre-wrap;
+}
+
+button {
+  border: none;
+}
+
+.bg-white {
+  background-color: white;
   width: 100%;
 }
 
@@ -38,7 +48,6 @@ a {
 
 .title h2 {
   font-size: 1.8rem;
-  font-weight: z00;
 }
 
 .link {
@@ -71,9 +80,9 @@ a {
   font-size: 1rem;
 }
 
-/* 3. header */
+/* 3. blog header */
 
-.header {
+.blog-header {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 5em;
@@ -81,26 +90,18 @@ a {
   align-items: center;
 }
 
-.pic img {
-  min-height: 37rem;
-  max-width: 35.9rem;
-}
-
-.desc h3 {
+.blog-description h3 {
   margin-bottom: 2em;
   font-size: 1.3rem;
 }
 
-.desc p {
+.blog-description p {
   font-size: 1.7rem;
   font-weight: 700;
   max-width: 40ch;
 }
 
 /* 4. recent posts */
-
-.recent-posts {
-}
 
 .intro {
   margin: auto;
@@ -119,7 +120,6 @@ a {
   max-width: 75ch;
   font-size: 1.1rem;
   font-weight: 100;
-  white-space: pre-wrap;
   margin: auto;
 }
 
@@ -157,7 +157,6 @@ a {
 
 .post p {
   max-width: 35ch;
-  white-space: pre-wrap;
 }
 
 .read-more {
@@ -168,12 +167,12 @@ a {
 
 /* 5. TBD */
 
-.test {
-  background-image: url('../images/cake2.jpg');
+.contact {
+  background-image: url('./images/cake2.jpg');
   background-repeat: no-repeat;
-  background-size: 95% 50%;
+  background-size: 95% 500px;
   background-position: center;
-  height: 1000px;
+  height: 600px;
   display: grid;
   place-items: center;
   text-align: center;
@@ -188,9 +187,6 @@ a {
   font-size: 1.4rem;
 }
 
-.form-input {
-}
-
 .form-input > label {
   display: none;
 }
@@ -201,7 +197,7 @@ a {
   font-size: 1.1rem;
 }
 
-.submit {
+.form-input .submit {
   padding: 1.3em;
   margin-left: 1em;
   color: white;
@@ -217,8 +213,13 @@ a {
 
 /* 6. footer */
 
+footer {
+  display: grid;
+  place-items: center;
+}
+
 .social {
-  margin-top: 20em;
+  margin-top: 2.5em;
 }
 
 .social a {
@@ -228,4 +229,123 @@ a {
 .social img {
   height: 2rem;
   width: 2rem;
+}
+
+/*  .7 about */
+
+.about {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  white-space: pre-wrap;
+  gap: 2.5em;
+}
+
+.test h2 {
+  font-size: 2.1rem;
+  width: 35ch;
+}
+
+.test p {
+  width: 65ch;
+  font-size: 1.2rem;
+}
+
+.test > * {
+  margin-bottom: 1.5em;
+  line-height: 1.4em;
+}
+
+/*  8. Contact */
+
+.center {
+  margin: auto;
+  width: max-content;
+}
+
+.test1 {
+  margin-top: 5em;
+}
+
+.test1 h2 {
+  font-size: 2.5rem;
+}
+
+.test1 p {
+  font-size: 1.1rem;
+  margin: 2.5em auto;
+  line-height: 1.7em;
+  width: 58ch;
+}
+
+.contact-info {
+  margin-bottom: 2.5em;
+}
+
+.contact-info h3 {
+  font-size: 1.3rem;
+}
+
+.address-social .social {
+  margin: initial;
+}
+
+.address-social .social a {
+  margin-right: 1em;
+}
+
+.address-social .social img {
+  height: 1.5rem;
+  width: 1.5rem;
+}
+
+.contact-form {
+  margin-top: 5em;
+  margin-bottom: 2em;
+}
+
+#contact-form {
+  display: flex;
+  gap: 1.5em;
+  flex-direction: column;
+}
+
+#contact-form input {
+  padding: 0.8em;
+  border: none;
+}
+
+#contact-form .submit {
+  margin: initial;
+  width: 20%;
+}
+
+.contact-form-input {
+  display: flex;
+}
+
+.contact-form-input > * {
+  flex: 1 1 100%;
+}
+
+.name {
+  border: none;
+  gap: 1.5em;
+}
+
+.form-text {
+  font-size: 0.9rem;
+}
+
+.fname,
+.lname,
+.email,
+.message {
+  display: flex;
+  flex-direction: column;
+}
+
+#message {
+  flex: 1 1 10em;
+  resize: none;
+  border: none;
 }

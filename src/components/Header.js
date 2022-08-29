@@ -1,12 +1,14 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Outlet, Link } from 'react-router-dom';
 import instagram from '../images/instagram.svg';
+import { CartQuantityContext } from '../App';
 import twitter from '../images/twitter.svg';
 import youtube from '../images/youtube.svg';
 import shopping_cart from '../images/shopping-cart.svg';
 
 export default function Header(props) {
   const active = props.active;
+  const cartQuantity = useContext(CartQuantityContext);
 
   return (
     <header>
@@ -33,7 +35,9 @@ export default function Header(props) {
             </Link>
           </li>
           <li className='link'>
-            <a href='#'>Shop</a>
+            <Link className={active == 'shop' ? 'active' : ''} to='/shop'>
+              Shop
+            </Link>
           </li>
           <li className='logo'>
             <a href='#'>
@@ -51,11 +55,11 @@ export default function Header(props) {
             </a>
           </li>
           <li className='cart-icon'>
-            <a href='#'>
+            <Link to='/cart'>
               <img src={shopping_cart} />
-            </a>
+            </Link>
             <div className='cart-quantity-container'>
-              <span className='cart-quantity'>0</span>
+              <span className='cart-quantity'>{cartQuantity}</span>
             </div>
           </li>
         </ul>

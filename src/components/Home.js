@@ -216,7 +216,7 @@ export default function Home() {
                 id='email'
                 placeholder='Enter Email'
               />
-              <button type='submit' className='submit'>
+              <button type='submit' className='button submit'>
                 Sign Up
               </button>
             </div>

@@ -61,7 +61,7 @@ export default function Contact() {
               <lable htmlFor='message'>Message *</lable>
               <textarea id='message' required></textarea>
             </div>
-            <button type='submit' className='submit'>
+            <button type='submit' className='button submit'>
               Send
             </button>
           </form>

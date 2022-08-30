@@ -1,15 +1,15 @@
 import React from 'react';
-import Header from './Header';
-import oreo_cupcake from '../images/oreo cupcakes.jpg';
-import apple_pie from '../images/apple pie.jpg';
-import brownies from '../images/brownies.jpg';
-import cake from '../images/cake.jpg';
-import cheesecake from '../images/cheesecake.jpg';
-import doughnuts from '../images/doughnuts.jpg';
-import loaf_cake from '../images/loaf cake.jpg';
-import pecan_pie from '../images/pecan pie.jpg';
-import tiramisu from '../images/tiramisu.jpg';
-import pancake from '../images/pancake.jpg';
+import Header from '../../components/Header';
+import oreo_cupcake from '../../assets/images/oreo cupcakes.jpg';
+import apple_pie from '../../assets/images/apple pie.jpg';
+import brownies from '../../assets/images/brownies.jpg';
+import cake from '../../assets/images/cake.jpg';
+import cheesecake from '../../assets/images/cheesecake.jpg';
+import doughnuts from '../../assets/images/doughnuts.jpg';
+import loaf_cake from '../../assets/images/loaf cake.jpg';
+import pecan_pie from '../../assets/images/pecan pie.jpg';
+import tiramisu from '../../assets/images/tiramisu.jpg';
+import pancake from '../../assets/images/pancake.jpg';
 
 export default function Home() {
   return (

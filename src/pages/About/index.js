@@ -1,6 +1,6 @@
 import React from 'react';
-import Header from './Header';
-import cheesecake from '../images/cheesecake.jpg';
+import Header from '../../components/Header';
+import cheesecake from '../../assets/images/cheesecake.jpg';
 
 export default function About() {
   return (

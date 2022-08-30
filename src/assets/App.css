@@ -376,9 +376,10 @@ p {
   display: flex;
   gap: 5em;
   height: 593px;
+  margin-bottom: 5em;
 }
 
-.item-img,
+.product-img,
 .item-description {
   height: 100%;
 }

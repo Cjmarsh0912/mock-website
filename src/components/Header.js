@@ -1,10 +1,10 @@
 import React, { useContext } from 'react';
 import { Outlet, Link } from 'react-router-dom';
-import instagram from '../images/instagram.svg';
 import { CartQuantityContext } from '../App';
-import twitter from '../images/twitter.svg';
-import youtube from '../images/youtube.svg';
-import shopping_cart from '../images/shopping-cart.svg';
+import instagram from '../assets/images/instagram.svg';
+import twitter from '../assets/images/twitter.svg';
+import youtube from '../assets/images/youtube.svg';
+import shopping_cart from '../assets/images/shopping-cart.svg';
 
 export default function Header(props) {
   const active = props.active;

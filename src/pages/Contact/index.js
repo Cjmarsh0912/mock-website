@@ -1,8 +1,8 @@
 import React from 'react';
-import Header from './Header';
-import instagram from '../images/instagram.svg';
-import twitter from '../images/twitter.svg';
-import youtube from '../images/youtube.svg';
+import Header from '../../components/Header';
+import instagram from '../../assets/images/instagram.svg';
+import twitter from '../../assets/images/twitter.svg';
+import youtube from '../../assets/images/youtube.svg';
 
 export default function Contact() {
   return (

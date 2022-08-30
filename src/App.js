@@ -1,12 +1,12 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import Home from './components/Home';
 import Footer from './components/Footer';
-import About from './components/About';
-import Contact from './components/Contact';
-import Shop from './components/Shop';
-import Cart from './components/Cart';
-import './App.css';
+import Home from './pages/Home/index';
+import About from './pages/About/index';
+import Contact from './pages/Contact/index';
+import Shop from './pages/Shop/index';
+import Cart from './pages/Cart/index';
+import './assets/App.css';
 
 export const CartQuantityContext = React.createContext();
 
@@ -24,6 +24,7 @@ function App() {
     };
   });
   const [cartQuantity, setCartQuantity] = useState(0);
+  const [fullPrice, setFullPrice] = useState('');
 
   function getCartQuantity(obj) {
     let fullQuantity = 0;
@@ -31,6 +32,14 @@ function App() {
       fullQuantity += obj[key].quantity;
     }
     return fullQuantity;
+  }
+
+  function getFullPrice(obj) {
+    let fullPrice = 0;
+    for (const key in obj) {
+      fullPrice += Number(obj[key].price) * obj[key].quantity;
+    }
+    return Number(fullPrice).toFixed(2);
   }
 
   const handleClick = (log) => {
@@ -47,17 +56,17 @@ function App() {
         },
       });
     }
-    setCartQuantity(getCartQuantity(items));
+    //setCartQuantity(getCartQuantity(items));
   };
 
-  const decrement = (log) => {
+  const handleDecrement = (log) => {
     log.quantity -= 1;
     switch (log.name) {
       case 'CookBook':
         setItems({
           ...items,
           0: {
-            name: 'CookBook',
+            name: log.name,
             price: log.price,
             quantity: log.quantity,
             fullPrice: function () {
@@ -67,10 +76,9 @@ function App() {
         });
         break;
     }
-    setCartQuantity(getCartQuantity(items));
   };
 
-  const increment = (log) => {
+  const handleIncrement = (log) => {
     log.quantity += 1;
     switch (log.name) {
       case 'CookBook':
@@ -87,10 +95,9 @@ function App() {
         });
         break;
     }
-    setCartQuantity(getCartQuantity(items));
   };
 
-  const deleted = (log) => {
+  const handleDelete = (log) => {
     log.quantity = 0;
     switch (log.name) {
       case 'CookBook':
@@ -110,6 +117,12 @@ function App() {
     setCartQuantity(getCartQuantity(items));
   };
 
+  useEffect(() => {
+    setCartQuantity(getCartQuantity(items));
+    setFullPrice(getFullPrice(items));
+    console.log(fullPrice);
+  }, [items]);
+
   return (
     <>
       <CartQuantityContext.Provider value={cartQuantity}>
@@ -125,9 +138,9 @@ function App() {
                 <Cart
                   cartQuantity={cartQuantity}
                   items={items}
-                  minus={decrement}
-                  plus={increment}
-                  dlt={deleted}
+                  handleDecrement={handleDecrement}
+                  handleIncrement={handleIncrement}
+                  handleDelete={handleDelete}
                 />
               }
             />

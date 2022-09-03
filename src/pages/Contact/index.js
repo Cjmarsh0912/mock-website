@@ -4,7 +4,7 @@ import instagram from '../../assets/images/instagram.svg';
 import twitter from '../../assets/images/twitter.svg';
 import youtube from '../../assets/images/youtube.svg';
 
-export default function Contact() {
+export default function Contact({ handleSubmit }) {
   return (
     <>
       <Header active='contact' />
@@ -41,7 +41,12 @@ export default function Contact() {
           </div>
         </div>
         <div className='contact-form'>
-          <form action='#' id='contact-form' method='post'>
+          <form
+            action='#'
+            id='contact-form'
+            method='post'
+            onSubmit={handleSubmit}
+          >
             <fieldset className='contact-form-input name'>
               <legend className='title'>Name *</legend>
               <label className='fname' htmlFor='fname'>
@@ -58,7 +63,7 @@ export default function Contact() {
               <input name='email' id='email' type='email' required />
             </div>
             <div className='contact-form-input message'>
-              <lable htmlFor='message'>Message *</lable>
+              <label htmlFor='message'>Message *</label>
               <textarea id='message' required></textarea>
             </div>
             <button type='submit' className='button submit'>

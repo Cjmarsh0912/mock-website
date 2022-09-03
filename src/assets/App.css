@@ -20,6 +20,8 @@
 body {
   font-family: 'Source Sans Pro', sans-serif;
   background-color: #ffb4a2;
+  height: 100vh;
+  position: relative;
 }
 
 nav,
@@ -103,6 +105,32 @@ p {
   font-size: 1rem;
 }
 
+@media screen and (max-width: 650px) {
+  .navbar {
+    flex-wrap: wrap;
+    gap: 2em;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .navbar > * {
+    flex: 1 1 100%;
+    margin: initial;
+    background-color: #ef476f;
+    padding: 1.3em;
+  }
+
+  .cart-quantity-container {
+    right: -1.3em;
+    left: 0;
+    top: 0.4em;
+  }
+
+  .logo {
+    display: none;
+  }
+}
+
 /*  End Header */
 
 /*  3. Home */
@@ -110,11 +138,19 @@ p {
 /*  3.1. blog header */
 
 .blog-header {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  display: flex;
   gap: 5em;
-  justify-items: center;
+  justify-content: center;
   align-items: center;
+  width: 100%;
+}
+
+.blog-header > * {
+  flex: 1 1 35.9rem;
+}
+
+.blog-header-img {
+  /* width: 35.9rem; */
 }
 
 .blog-description h3 {
@@ -128,10 +164,25 @@ p {
   max-width: 40ch;
 }
 
-/* 3.2. recent posts */
+@media screen and (max-width: 750px) {
+  .blog-header {
+    flex-wrap: wrap;
+  }
 
-.recent-posts {
+  .blog-header > * {
+    flex: 1 1 100%;
+  }
+
+  .blog-header-img {
+    width: inherit;
+  }
+
+  .blog-description {
+    text-align: center;
+  }
 }
+
+/* 3.2. recent posts */
 
 .intro {
   margin: auto;
@@ -158,6 +209,7 @@ p {
   flex-direction: column;
   flex-wrap: wrap;
   height: 2300px;
+  align-items: center;
 }
 
 .post {
@@ -193,6 +245,31 @@ p {
   width: max-content;
   border-bottom: #ef476f solid 2px;
   color: #ef476f;
+}
+
+@media screen and (max-width: 1100px) {
+  .posts {
+    height: max-content;
+    flex-wrap: wrap;
+    flex-direction: row;
+    /* gap: 50em; */
+    /* justify-content: center; */
+    /* align-items: flex-start; */
+  }
+
+  .post {
+    flex: 1 1 100%;
+    /* height: 500px; */
+  }
+
+  .post-img {
+    width: 20rem;
+    height: 15rem !important;
+  }
+
+  .post img {
+    height: inherit !important;
+  }
 }
 
 /*  3.3. contact */
@@ -375,13 +452,13 @@ p {
 .item {
   display: flex;
   gap: 5em;
-  height: 593px;
+  height: max-content;
   margin-bottom: 5em;
 }
 
 .product-img,
 .item-description {
-  height: 100%;
+  height: unset;
 }
 
 .item-description {
@@ -458,13 +535,9 @@ p {
 
 .cart-item {
   display: flex;
-  gap: 20em;
   border-bottom: hsla(0, 0%, 39%, 0.2) solid 2px;
   padding-bottom: 2em;
-}
-
-.cart-item > * {
-  flex: 1 1 100%;
+  margin-bottom: 5em;
 }
 
 .cart-item button {
@@ -487,9 +560,8 @@ p {
 }
 
 .item-img {
-  width: 100%;
-  height: 100%;
-  background-image: url('./images/temp.jpg');
+  width: inherit;
+  height: inherit;
   background-repeat: no-repeat;
   background-size: cover;
 }
@@ -498,6 +570,16 @@ p {
   margin-right: auto;
   display: flex;
   gap: 2em;
+}
+
+.item-name h3 {
+  width: 20ch;
+}
+
+.increment-decrement {
+  margin-right: 20em;
+  width: 20ch;
+  text-align: center;
 }
 
 .increment-decrement img {
@@ -513,6 +595,33 @@ p {
 .item-price {
   display: flex;
   gap: 1.5em;
+  width: 15ch;
+}
+
+/*  7.3 checkout */
+
+.checkout {
+  width: 25em;
+  margin-left: auto;
+  margin-right: 5em;
+}
+
+.subtotal {
+  display: flex;
+  width: inherit;
+}
+
+.subtotal > * {
+  font-size: 1.4rem;
+}
+
+.full-price {
+  margin-left: auto;
+}
+
+.checkout-btn {
+  width: inherit;
+  margin-top: 2em;
 }
 
 /*  End Cart */
@@ -535,6 +644,13 @@ footer {
 .social img {
   height: 2rem;
   width: 2rem;
+}
+
+#cart + footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
 }
 
 /*  End Footer */

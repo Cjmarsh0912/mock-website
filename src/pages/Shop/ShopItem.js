@@ -2,10 +2,10 @@ import React, { useState } from 'react';
 
 export default function ShopItem({
   productImage,
-  productName,
-  productPrice,
+  product,
   productQuantity,
   updateQuantity,
+  buttonText,
   addToCart,
 }) {
   return (
@@ -14,9 +14,9 @@ export default function ShopItem({
         <img style={{ height: '100%', width: '36.3rem' }} src={productImage} />
       </div>
       <div className='item-description'>
-        <h1>{productName}</h1>
+        <h1>{product.name}</h1>
         <div className='item-price-container'>
-          <span className='item-price'>${productPrice}</span>
+          <span className='item-price'>${product.price}</span>
         </div>
         <p className='item-details'>
           Lorem ipsum dolor sit, amet consectetur adipisicing elit. Rem impedit
@@ -39,10 +39,10 @@ export default function ShopItem({
           />
         </div>
         <button
-          onClick={() => addToCart(productName, productPrice)}
+          onClick={() => addToCart(product)}
           className='add-to-cart-btn button'
         >
-          Add To Cart
+          {buttonText}
         </button>
       </div>
     </article>

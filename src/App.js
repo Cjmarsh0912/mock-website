@@ -6,121 +6,101 @@ import About from './pages/About/index';
 import Contact from './pages/Contact/index';
 import Shop from './pages/Shop/index';
 import Cart from './pages/Cart/index';
+import testData from './data/shopItems.json';
 import './assets/App.css';
 
 export const CartQuantityContext = React.createContext();
 
 function App() {
-  const [items, setItems] = useState(() => {
+  const shopItems = testData.shopItems.map((obj) => {
     return {
-      0: {
-        name: 'CookBook',
-        price: '25.00',
-        quantity: 0,
-        fullPrice: function () {
-          return (Number(this.price) * this.quantity).toFixed(2);
-        },
+      ...obj,
+      fullPrice: function () {
+        return (Number(this.price) * this.quantity).toFixed(2);
       },
     };
   });
+  const [items, setItems] = useState(shopItems);
   const [cartQuantity, setCartQuantity] = useState(0);
-  const [fullPrice, setFullPrice] = useState('');
+  const [fullPrice, setFullPrice] = useState('0.00');
 
   function getCartQuantity(obj) {
     let fullQuantity = 0;
-    for (const key in obj) {
-      fullQuantity += obj[key].quantity;
-    }
+    obj.forEach((element) => {
+      fullQuantity += element.quantity;
+    });
     return fullQuantity;
   }
 
   function getFullPrice(obj) {
     let fullPrice = 0;
-    for (const key in obj) {
-      fullPrice += Number(obj[key].price) * obj[key].quantity;
-    }
+    obj.forEach((element) => {
+      fullPrice += Number(element.price) * element.quantity;
+    });
     return Number(fullPrice).toFixed(2);
   }
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+  };
+
   const handleClick = (log) => {
-    if (log.name == 'CookBook') {
-      setItems({
-        ...items,
-        0: {
-          name: 'CookBook',
-          price: '25.00',
-          quantity: (items[0].quantity += Number(log.quantity)),
-          fullPrice: function () {
-            return (Number(this.price) * this.quantity).toFixed(2);
-          },
-        },
-      });
-    }
-    //setCartQuantity(getCartQuantity(items));
+    const newState = items.map((obj) => {
+      if (obj.id === log.id) {
+        const newQuantity = obj.quantity + Number(log.quantity);
+        return {
+          ...obj,
+          quantity: newQuantity,
+          image: log.image,
+        };
+      }
+      return obj;
+    });
+    setItems(newState);
   };
 
   const handleDecrement = (log) => {
-    log.quantity -= 1;
-    switch (log.name) {
-      case 'CookBook':
-        setItems({
-          ...items,
-          0: {
-            name: log.name,
-            price: log.price,
-            quantity: log.quantity,
-            fullPrice: function () {
-              return (Number(this.price) * this.quantity).toFixed(2);
-            },
-          },
-        });
-        break;
-    }
+    const newState = items.map((obj) => {
+      if (obj.id === log.id && log.quantity !== 1) {
+        return {
+          ...obj,
+          quantity: obj.quantity - 1,
+        };
+      }
+      return obj;
+    });
+    setItems(newState);
   };
 
   const handleIncrement = (log) => {
-    log.quantity += 1;
-    switch (log.name) {
-      case 'CookBook':
-        setItems({
-          ...items,
-          0: {
-            name: 'CookBook',
-            price: log.price,
-            quantity: log.quantity,
-            fullPrice: function () {
-              return (Number(this.price) * this.quantity).toFixed(2);
-            },
-          },
-        });
-        break;
-    }
+    const newState = items.map((obj) => {
+      if (obj.id === log.id) {
+        return {
+          ...obj,
+          quantity: obj.quantity + 1,
+        };
+      }
+      return obj;
+    });
+    setItems(newState);
   };
 
   const handleDelete = (log) => {
-    log.quantity = 0;
-    switch (log.name) {
-      case 'CookBook':
-        setItems({
-          ...items,
-          0: {
-            name: 'CookBook',
-            price: log.price,
-            quantity: log.quantity,
-            fullPrice: function () {
-              return (Number(this.price) * this.quantity).toFixed(2);
-            },
-          },
-        });
-        break;
-    }
-    setCartQuantity(getCartQuantity(items));
+    const newState = items.map((obj) => {
+      if (obj.id === log.id) {
+        return {
+          ...obj,
+          quantity: 0,
+        };
+      }
+      return obj;
+    });
+    setItems(newState);
   };
 
   useEffect(() => {
     setCartQuantity(getCartQuantity(items));
     setFullPrice(getFullPrice(items));
-    console.log(fullPrice);
   }, [items]);
 
   return (
@@ -128,10 +108,16 @@ function App() {
       <CartQuantityContext.Provider value={cartQuantity}>
         <BrowserRouter>
           <Routes>
-            <Route path='/' element={<Home />} />
+            <Route path='/' element={<Home handleSubmit={handleSubmit} />} />
             <Route path='about' element={<About />} />
-            <Route path='contact' element={<Contact />} />
-            <Route path='shop' element={<Shop handleClick={handleClick} />} />
+            <Route
+              path='contact'
+              element={<Contact handleSubmit={handleSubmit} />}
+            />
+            <Route
+              path='shop'
+              element={<Shop shopItems={items} handleClick={handleClick} />}
+            />
             <Route
               path='cart'
               element={
@@ -141,6 +127,7 @@ function App() {
                   handleDecrement={handleDecrement}
                   handleIncrement={handleIncrement}
                   handleDelete={handleDelete}
+                  fullPrice={fullPrice}
                 />
               }
             />

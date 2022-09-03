@@ -1,0 +1,16 @@
+{
+  "shopItems": [
+    {
+      "id": 0,
+      "name": "Redmond deserts Ed. 1",
+      "price": "25.00",
+      "quantity": 0
+    },
+    {
+      "id": 1,
+      "name": "Brownies",
+      "price": "6.00",
+      "quantity": 0
+    }
+  ]
+}

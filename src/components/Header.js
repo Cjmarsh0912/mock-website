@@ -16,11 +16,14 @@ export default function Header(props) {
         <ul className='navbar'>
           <li className='title'>
             <h2>
-              <Link to='/'>Redmond</Link>
+              <Link to='/mock-website'>Redmond</Link>
             </h2>
           </li>
           <li className='link'>
-            <Link className={active == 'blog' ? 'active' : ''} to='/'>
+            <Link
+              className={active == 'blog' ? 'active' : ''}
+              to='/mock-website'
+            >
               Blog
             </Link>
           </li>

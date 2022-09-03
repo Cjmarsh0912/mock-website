@@ -108,7 +108,10 @@ function App() {
       <CartQuantityContext.Provider value={cartQuantity}>
         <BrowserRouter>
           <Routes>
-            <Route path='/' element={<Home handleSubmit={handleSubmit} />} />
+            <Route
+              path='/mock-website'
+              element={<Home handleSubmit={handleSubmit} />}
+            />
             <Route path='about' element={<About />} />
             <Route
               path='contact'

@@ -48,6 +48,11 @@ p {
   cursor: pointer;
   padding: 1.3em;
   text-align: center;
+  transition: background-color 0.2s;
+}
+
+.button:hover {
+  background-color: rgba(239, 71, 111, 0.5);
 }
 
 .bg-white {
@@ -149,17 +154,13 @@ p {
   flex: 1 1 35.9rem;
 }
 
-.blog-header-img {
-  /* width: 35.9rem; */
-}
-
 .blog-description h3 {
   margin-bottom: 2em;
-  font-size: 1.3rem;
+  font-size: clamp(1.1rem, 0.35rem + 1.6vw, 1.3rem);
 }
 
 .blog-description p {
-  font-size: 1.7rem;
+  font-size: clamp(1.3rem, -0.2rem + 3.2vw, 1.7rem);
   font-weight: 700;
   max-width: 40ch;
 }
@@ -180,6 +181,10 @@ p {
   .blog-description {
     text-align: center;
   }
+
+  .blog-description p {
+    margin: auto;
+  }
 }
 
 /* 3.2. recent posts */
@@ -189,6 +194,7 @@ p {
   margin-top: 5em;
   margin-bottom: 5em;
   text-align: center;
+  max-width: max-content;
 }
 
 .intro h3 {
@@ -208,20 +214,26 @@ p {
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
-  height: 2300px;
+  height: 2375px;
   align-items: center;
+  width: 100%;
 }
 
 .post {
-  width: max-content;
+  width: 30%;
   display: flex;
   flex-direction: column;
   gap: 1.5em;
+  margin: 0 1em;
   margin-bottom: 1.5em;
 }
 
+.post-img {
+  width: 100%;
+}
+
 .post img {
-  width: 21rem;
+  width: inherit;
 }
 
 .post-date {
@@ -230,7 +242,7 @@ p {
 
 .post-name {
   font-size: 1.8rem;
-  width: 20ch;
+  max-width: 20ch;
 }
 
 .post-name a {
@@ -247,34 +259,25 @@ p {
   color: #ef476f;
 }
 
-@media screen and (max-width: 1100px) {
+@media screen and (max-width: 800px) {
   .posts {
     height: max-content;
     flex-wrap: wrap;
     flex-direction: row;
-    /* gap: 50em; */
-    /* justify-content: center; */
-    /* align-items: flex-start; */
   }
 
   .post {
     flex: 1 1 100%;
-    /* height: 500px; */
   }
 
-  .post-img {
-    width: 20rem;
-    height: 15rem !important;
-  }
-
-  .post img {
+  .post-img img {
     height: inherit !important;
   }
 }
 
 /*  3.3. contact */
 
-.contact {
+.update {
   background-image: url('./images/cake2.jpg');
   background-repeat: no-repeat;
   background-size: 95% 500px;
@@ -300,17 +303,12 @@ p {
 
 .form-input input {
   padding: 1.3em;
-  width: 25em;
+  width: clamp(5em, 10vw + 10em, 30em);
   font-size: 1.1rem;
 }
 
 .submit {
   margin-left: 1em;
-  transition: background-color 0.5s;
-}
-
-.submit:hover {
-  background-color: rgba(239, 71, 111, 0.5);
 }
 
 /*  End Home */
@@ -318,20 +316,19 @@ p {
 /*  4. About */
 
 .about {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  display: flex;
   white-space: pre-wrap;
   gap: 2.5em;
 }
 
 .test h2 {
-  font-size: 2.1rem;
-  width: 35ch;
+  font-size: clamp(1.3rem, -0.0333rem + 4.2667vw, 2.1rem);
+  max-width: 35ch;
 }
 
 .test p {
-  width: 65ch;
-  font-size: 1.2rem;
+  max-width: 65ch;
+  font-size: clamp(1rem, -0.6rem + 3.2vw, 1.2rem);
 }
 
 .test > * {
@@ -339,30 +336,44 @@ p {
   line-height: 1.4em;
 }
 
+.test-img {
+  height: clamp(20rem, -0.2rem + 64.64vw, 40.2rem);
+  width: 40%;
+}
+
+@media screen and (max-width: 800px) {
+  .about {
+    flex-wrap: wrap;
+  }
+
+  .about > * {
+    flex: 1 1 100%;
+  }
+}
+
 /*  End About */
 
 /*  5. Contact */
 
-.center {
+.contact {
   margin: auto;
-  width: max-content;
+  max-width: 50%;
 }
 
-/*  5.1. TBD */
+/*  5.1. get in touch */
 
-.test1 {
+.get-in-touch {
   margin-top: 5em;
 }
 
-.test1 h2 {
-  font-size: 2.5rem;
+.get-in-touch h2 {
+  font-size: clamp(0.1rem, 50vw, 2.5rem);
 }
 
-.test1 p {
+.get-in-touch p {
   font-size: 1.1rem;
   margin: 2.5em auto;
   line-height: 1.7em;
-  width: 58ch;
 }
 
 .contact-info {
@@ -386,6 +397,13 @@ p {
   width: 1.5rem;
 }
 
+@media screen and (max-width: 850px) {
+  .contact {
+    margin: initial;
+    max-width: 100%;
+  }
+}
+
 /*  5.2. contact form */
 
 .contact-form {
@@ -397,6 +415,7 @@ p {
   display: flex;
   gap: 1.5em;
   flex-direction: column;
+  width: 100%;
 }
 
 #contact-form input {
@@ -404,34 +423,29 @@ p {
   border: none;
 }
 
-#contact-form .submit {
+#contact-form .button {
   margin: initial;
-  width: 20%;
+  width: 8em;
 }
 
 .contact-form-input {
   display: flex;
+  flex-direction: column;
+  width: 100%;
 }
 
 .contact-form-input > * {
   flex: 1 1 100%;
 }
 
-.name {
+.full-name {
+  display: flex;
   border: none;
   gap: 1.5em;
 }
 
-.form-text {
+.name {
   font-size: 0.9rem;
-}
-
-.fname,
-.lname,
-.email,
-.message {
-  display: flex;
-  flex-direction: column;
 }
 
 #message {
@@ -454,11 +468,21 @@ p {
   gap: 5em;
   height: max-content;
   margin-bottom: 5em;
+  justify-content: center;
+  width: 100%;
+}
+
+.item > * {
+  flex: 1 1 100%;
 }
 
 .product-img,
 .item-description {
   height: unset;
+}
+
+.product-img {
+  max-width: 100%;
 }
 
 .item-description {
@@ -468,17 +492,17 @@ p {
 }
 
 .item-description h1 {
-  font-size: 2.5rem;
+  font-size: clamp(1.3rem, 0.3667rem + 4.2667vw, 2.5rem);
 }
 
-.item-price {
+.item-price-container .item-price {
   font-size: 1.3rem;
 }
 
 .item-details {
   line-height: 1.5em;
-  font-size: 1.2rem;
-  width: 45ch;
+  font-size: clamp(1rem, 0.8444rem + 0.7111vw, 1.2rem);
+  max-width: 45ch;
 }
 
 .item-quantity {
@@ -493,21 +517,14 @@ p {
 #quantity {
   font-size: 1.2rem;
   padding: 1.4em;
-  width: 30%;
+  width: 8em;
   border: black 1px solid;
 }
 
-.add-to-cart-btn {
-  padding: 1.3em;
-  color: white;
-  background-color: #ef476f;
-  font-size: 1.1rem;
-  cursor: pointer;
-  transition: background-color 0.5s;
-}
-
-.add-to-cart-btn:hover {
-  background-color: rgba(239, 71, 111, 0.5);
+@media screen and (max-width: 800px) {
+  .item {
+    flex-wrap: wrap;
+  }
 }
 
 /*  End Shop */
@@ -538,11 +555,12 @@ p {
   border-bottom: hsla(0, 0%, 39%, 0.2) solid 2px;
   padding-bottom: 2em;
   margin-bottom: 5em;
+  position: relative;
 }
 
 .cart-item button {
-  width: 1.5rem;
-  height: 1.5rem;
+  width: 1.2rem;
+  height: 1.2rem;
   background-color: inherit;
   border: none;
   cursor: pointer;
@@ -555,8 +573,8 @@ p {
 }
 
 .item-img-container {
-  width: 8rem;
-  height: 8rem;
+  width: clamp(4rem, -6.6667rem + 21.3333vw, 8rem);
+  height: clamp(4rem, -6.6667rem + 21.3333vw, 8rem);
 }
 
 .item-img {
@@ -573,22 +591,26 @@ p {
 }
 
 .item-name h3 {
-  width: 20ch;
+  max-width: clamp(5rem, -100rem + 480vw, 20rem);
+  font-size: clamp(1rem, -0.5833rem + 6.6667vw, 1.5rem);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }
 
 .increment-decrement {
-  margin-right: 20em;
+  margin-right: 10em;
   width: 20ch;
   text-align: center;
 }
 
 .increment-decrement img {
-  width: 100%;
-  height: 100%;
+  width: 1.2rem;
+  height: 1.2rem;
 }
 
 .item-number {
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   margin: auto 1.3em;
 }
 
@@ -596,6 +618,25 @@ p {
   display: flex;
   gap: 1.5em;
   width: 15ch;
+  font-size: 1.2rem;
+}
+
+@media screen and (max-width: 800px) {
+  .increment-decrement {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+  }
+
+  .item-full-price {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+  }
+
+  .delete {
+    margin-left: auto;
+  }
 }
 
 /*  7.3 checkout */
@@ -622,6 +663,13 @@ p {
 .checkout-btn {
   width: inherit;
   margin-top: 2em;
+}
+
+@media screen and (max-width: 950px) {
+  .checkout {
+    width: 100%;
+    margin: initial;
+  }
 }
 
 /*  End Cart */

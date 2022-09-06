@@ -60,12 +60,17 @@ export default function Cart({
                         </button>
                       </div>
                       <div className='item-price'>
-                        <span className='full-price'>${item.fullPrice()}</span>
+                        <span className='item-full-price'>
+                          ${item.fullPrice()}
+                        </span>
                         <button
                           onClick={() => handleDelete(item)}
                           className='delete'
                         >
-                          <img src={deleted} />
+                          <img
+                            style={{ width: '100%', height: '100%' }}
+                            src={deleted}
+                          />
                         </button>
                       </div>
                     </article>

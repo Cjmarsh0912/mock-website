@@ -39,7 +39,7 @@ export default function RecentPosts() {
         </article>
 
         <article className='post'>
-          <a href='#'>
+          <a className='post-img' href='#'>
             <img style={{ height: '33.5rem' }} src={brownies} />
           </a>
           <time className='post-date'>3/15/21</time>
@@ -56,7 +56,7 @@ export default function RecentPosts() {
         </article>
 
         <article className='post'>
-          <a href='#'>
+          <a className='post-img' href='#'>
             <img style={{ height: '28rem' }} src={cake} />
           </a>
           <time className='post-date'>3/09/21</time>
@@ -73,7 +73,7 @@ export default function RecentPosts() {
         </article>
 
         <article className='post'>
-          <a href='#'>
+          <a className='post-img' href='#'>
             <img style={{ height: '15rem' }} src={cheesecake} />
           </a>
           <time className='post-date'>4/01/21</time>
@@ -90,7 +90,7 @@ export default function RecentPosts() {
         </article>
 
         <article className='post'>
-          <a href='#'>
+          <a className='post-img' href='#'>
             <img style={{ height: '33.4rem' }} src={doughnuts} />
           </a>
           <time className='post-date'>4/12/21</time>
@@ -107,7 +107,7 @@ export default function RecentPosts() {
         </article>
 
         <article className='post'>
-          <a href='#'>
+          <a className='post-img' href='#'>
             <img style={{ height: '33.5rem' }} src={loaf_cake} />
           </a>
           <time className='post-date'>4/16/21</time>
@@ -124,7 +124,7 @@ export default function RecentPosts() {
         </article>
 
         <article className='post'>
-          <a href='#'>
+          <a className='post-img' href='#'>
             <img style={{ height: '33.4rem' }} src={pancake} />
           </a>
           <time className='post-date'>4/16/21</time>
@@ -141,7 +141,7 @@ export default function RecentPosts() {
         </article>
 
         <article className='post'>
-          <a href='#'>
+          <a className='post-img' href='#'>
             <img style={{ height: '33.4rem' }} src={pecan_pie} />
           </a>
           <time className='post-date'>4/20/21</time>
@@ -158,7 +158,7 @@ export default function RecentPosts() {
         </article>
 
         <article className='post'>
-          <a href='#'>
+          <a className='post-img' href='#'>
             <img style={{ height: '28rem' }} src={tiramisu} />
           </a>
           <time className='post-date'>5/01/21</time>

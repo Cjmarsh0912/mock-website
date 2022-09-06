@@ -36,10 +36,7 @@ export default function About() {
             </p>
           </div>
           <div className='test-img'>
-            <img
-              style={{ height: '40.2rem', width: '30rem' }}
-              src={cheesecake}
-            />
+            <img style={{ height: '100%', width: '100%' }} src={cheesecake} />
           </div>
         </section>
       </main>

@@ -11,7 +11,10 @@ export default function ShopItem({
   return (
     <article className='item'>
       <div className='product-img'>
-        <img style={{ height: '100%', width: '36.3rem' }} src={productImage} />
+        <img
+          style={{ height: '100%', maxWidth: 'inherit' }}
+          src={productImage}
+        />
       </div>
       <div className='item-description'>
         <h1>{product.name}</h1>
@@ -38,10 +41,7 @@ export default function ShopItem({
             onChange={(e) => updateQuantity(e)}
           />
         </div>
-        <button
-          onClick={() => addToCart(product)}
-          className='add-to-cart-btn button'
-        >
+        <button onClick={() => addToCart(product)} className='button'>
           {buttonText}
         </button>
       </div>

@@ -30,7 +30,7 @@ export default function Home({ handleSubmit }) {
           <RecentPosts />
         </div>
 
-        <section className='contact'>
+        <section className='update'>
           <form id='update-form' onSubmit={handleSubmit}>
             <header className='form-header'>
               <h3>Get the Low Down</h3>

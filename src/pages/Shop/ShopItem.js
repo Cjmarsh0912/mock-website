@@ -9,8 +9,8 @@ export default function ShopItem({
   addToCart,
 }) {
   return (
-    <article className='item'>
-      <div className='product-img'>
+    <article className='shop-item'>
+      <div className='item-img'>
         <img
           style={{ height: '100%', maxWidth: 'inherit' }}
           src={productImage}

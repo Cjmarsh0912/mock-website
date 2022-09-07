@@ -10,7 +10,7 @@ export default function Contact({ handleSubmit }) {
       <Header active='contact' />
       <main>
         <section className='contact'>
-          <div className='get-in-touch'>
+          <div className='contact-header'>
             <h2>Get In Touch</h2>
             <p>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
@@ -42,7 +42,7 @@ export default function Contact({ handleSubmit }) {
             </div>
           </div>
 
-          <div className='contact-form'>
+          <div className='contact-form-container'>
             <form
               action='#'
               id='contact-form'

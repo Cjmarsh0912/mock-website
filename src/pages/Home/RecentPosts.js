@@ -12,7 +12,7 @@ import pancake from '../../assets/images/pancake.jpg';
 export default function RecentPosts() {
   return (
     <section className='recent-posts'>
-      <div className='intro'>
+      <div className='post-header'>
         <h3>Recent Posts</h3>
         <p>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero, fugiat!
@@ -20,7 +20,7 @@ export default function RecentPosts() {
           laborum voluptas explicabo, porro ducimus blanditiis excepturi ex.
         </p>
       </div>
-      <div className='posts'>
+      <div className='recent-posts-container'>
         <article className='post'>
           <a className='post-img' href='#'>
             <img style={{ height: '28rem' }} src={apple_pie} />

@@ -21,7 +21,7 @@ export default function Cart({
           <section className='cart-empty'>
             <h3>Shopping Cart</h3>
             <p>You have nothing in your shopping cart!</p>
-            <Link to='/shop' className='button btn-lrg'>
+            <Link to='/shop' className='button'>
               Continue Shopping
             </Link>
           </section>
@@ -35,11 +35,11 @@ export default function Cart({
                 if (item.quantity > 0) {
                   return (
                     <article key={item.id} className='cart-item'>
-                      <div className='item-name'>
-                        <div className='item-img-container'>
+                      <div className='cart-item-name'>
+                        <div className='cart-item-img-container'>
                           <div
                             style={{ backgroundImage: `url(${item.image})` }}
-                            className='item-img'
+                            className='cart-item-img'
                           ></div>
                         </div>
                         <h3>{item.name}</h3>
@@ -51,7 +51,9 @@ export default function Cart({
                         >
                           <img src={decrement} />
                         </button>
-                        <span className='item-number'>{item.quantity}</span>
+                        <span className='cart-item-number'>
+                          {item.quantity}
+                        </span>
                         <button
                           onClick={() => handleIncrement(item)}
                           className='increment'
@@ -59,8 +61,8 @@ export default function Cart({
                           <img src={increment} />
                         </button>
                       </div>
-                      <div className='item-price'>
-                        <span className='item-full-price'>
+                      <div className='cart-item-price'>
+                        <span className='cart-item-full-price'>
                           ${item.fullPrice()}
                         </span>
                         <button

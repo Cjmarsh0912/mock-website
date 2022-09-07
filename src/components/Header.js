@@ -14,7 +14,7 @@ export default function Header(props) {
     <header>
       <nav>
         <ul className='navbar'>
-          <li className='title'>
+          <li className='website-title'>
             <h2>
               <Link to='/mock-website'>Redmond</Link>
             </h2>
@@ -42,17 +42,17 @@ export default function Header(props) {
               Shop
             </Link>
           </li>
-          <li className='logo'>
+          <li className='social'>
             <a href='#'>
               <img src={instagram} />
             </a>
           </li>
-          <li className='logo'>
+          <li className='social'>
             <a href='#'>
               <img src={twitter} />
             </a>
           </li>
-          <li className='logo'>
+          <li className='social'>
             <a href='#'>
               <img src={youtube} />
             </a>

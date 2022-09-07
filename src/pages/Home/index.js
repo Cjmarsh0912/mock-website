@@ -11,7 +11,7 @@ export default function Home({ handleSubmit }) {
         <header className='blog-header'>
           <div className='blog-header-img'>
             <img
-              style={{ minHeight: '37rem', width: '100%' }}
+              style={{ height: '100%', maxWidth: '100%' }}
               src={oreo_cupcake}
             />
           </div>
@@ -30,26 +30,28 @@ export default function Home({ handleSubmit }) {
           <RecentPosts />
         </div>
 
-        <section className='update'>
-          <form id='update-form' onSubmit={handleSubmit}>
-            <header className='form-header'>
-              <h3>Get the Low Down</h3>
-              <p>Sign up with your email address to get news and updates.</p>
-            </header>
-            <div className='form-input'>
-              <label htmlFor='email'>Email Address</label>
-              <input
-                type='email'
-                name='email'
-                id='email'
-                placeholder='Enter Email'
-                required
-              />
-              <button type='submit' className='button submit'>
-                Sign Up
-              </button>
-            </div>
-          </form>
+        <section className='newsletter-form-container'>
+          <div className='newsletter-form'>
+            <form id='newsletter-form' onSubmit={handleSubmit}>
+              <header className='form-header'>
+                <h3>Get the Low Down</h3>
+                <p>Sign up with your email address to get news and updates.</p>
+              </header>
+              <div className='form-input'>
+                <label htmlFor='email'>Email Address</label>
+                <input
+                  type='email'
+                  name='email'
+                  id='email'
+                  placeholder='Enter Email'
+                  required
+                />
+                <button type='submit' className='button submit'>
+                  Sign Up
+                </button>
+              </div>
+            </form>
+          </div>
         </section>
       </main>
     </>

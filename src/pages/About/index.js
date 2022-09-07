@@ -7,8 +7,8 @@ export default function About() {
     <>
       <Header active='about' />
       <main>
-        <section className='about'>
-          <div className='test'>
+        <section className='about-container'>
+          <div className='about-description'>
             <h2>
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam
               enim, fugit magni alias omnis praesentium vitae perferendis
@@ -35,7 +35,7 @@ export default function About() {
               Morbi vitae ultrices velit. Sed molestie consectetur metus.
             </p>
           </div>
-          <div className='test-img'>
+          <div className='about-img'>
             <img style={{ height: '100%', width: '100%' }} src={cheesecake} />
           </div>
         </section>

@@ -6,13 +6,13 @@ import About from './pages/About/index';
 import Contact from './pages/Contact/index';
 import Shop from './pages/Shop/index';
 import Cart from './pages/Cart/index';
-import testData from './data/shopItems.json';
+import shopData from './data/shopItems.json';
 import './assets/App.css';
 
 export const CartQuantityContext = React.createContext();
 
 function App() {
-  const shopItems = testData.shopItems.map((obj) => {
+  const shopItems = shopData.shopItems.map((obj) => {
     return {
       ...obj,
       fullPrice: function () {

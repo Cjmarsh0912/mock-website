@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/mock-website/static/css/main.d347dfc2.css",
-    "main.js": "/mock-website/static/js/main.8dfdd9bb.js",
+    "main.css": "/mock-website/static/css/main.ee7f503d.css",
+    "main.js": "/mock-website/static/js/main.cfe3fed6.js",
     "static/media/apple pie.jpg": "/mock-website/static/media/apple pie.b5a84591e0365cae021d.jpg",
     "static/media/brownies.jpg": "/mock-website/static/media/brownies.72de9d18190fa425abe0.jpg",
     "static/media/loaf cake.jpg": "/mock-website/static/media/loaf cake.50d2a2c2c04d6af89fd0.jpg",
@@ -22,11 +22,11 @@
     "static/media/delete.svg": "/mock-website/static/media/delete.dbba71db81c1f8f430f6e3ff945f0388.svg",
     "static/media/increment.svg": "/mock-website/static/media/increment.f628d1c2e0ec101f2097ec2954df7c49.svg",
     "static/media/decrement.svg": "/mock-website/static/media/decrement.472c7f916bcc3da788b77f9d15435508.svg",
-    "main.d347dfc2.css.map": "/mock-website/static/css/main.d347dfc2.css.map",
-    "main.8dfdd9bb.js.map": "/mock-website/static/js/main.8dfdd9bb.js.map"
+    "main.ee7f503d.css.map": "/mock-website/static/css/main.ee7f503d.css.map",
+    "main.cfe3fed6.js.map": "/mock-website/static/js/main.cfe3fed6.js.map"
   },
   "entrypoints": [
-    "static/css/main.d347dfc2.css",
-    "static/js/main.8dfdd9bb.js"
+    "static/css/main.ee7f503d.css",
+    "static/js/main.cfe3fed6.js"
   ]
 }

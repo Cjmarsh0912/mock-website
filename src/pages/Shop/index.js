@@ -7,7 +7,6 @@ import brownies from '../../assets/images/brownies.jpg';
 export default function Shop({ handleClick, shopItems }) {
   const [quantity, setQuantity] = useState('1');
   const itemImages = [cookbook, brownies];
-  const [buttonText, setButtonText] = useState('Add To Cart');
 
   const updateQuantity = (e) => {
     setQuantity(e.target.value);
@@ -25,6 +24,7 @@ export default function Shop({ handleClick, shopItems }) {
       };
       handleClick(newItem);
       setQuantity('1');
+      alert('Added to cart');
     }
   };
   return (
@@ -38,7 +38,6 @@ export default function Shop({ handleClick, shopItems }) {
                 key={item.id}
                 productImage={itemImages[id]}
                 product={item}
-                buttonText={buttonText}
                 productQuantity={quantity}
                 updateQuantity={updateQuantity}
                 addToCart={addToCart}

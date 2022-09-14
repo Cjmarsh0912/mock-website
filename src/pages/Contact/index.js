@@ -1,8 +1,6 @@
 import React from 'react';
 import Header from '../../components/Header';
-import instagram from '../../assets/images/instagram.svg';
-import twitter from '../../assets/images/twitter.svg';
-import youtube from '../../assets/images/youtube.svg';
+import { FaYoutube, FaTwitter, FaInstagram } from 'react-icons/fa';
 
 export default function Contact({ handleSubmit }) {
   return (
@@ -31,13 +29,13 @@ export default function Contact({ handleSubmit }) {
             <h3>New York, NY 12345</h3>
             <div className='social'>
               <a href='#'>
-                <img src={instagram} />
+                <FaInstagram />
               </a>
               <a href='#'>
-                <img src={twitter} />
+                <FaTwitter />
               </a>
               <a href='#'>
-                <img src={youtube} />
+                <FaYoutube />
               </a>
             </div>
           </div>

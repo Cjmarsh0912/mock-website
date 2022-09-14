@@ -1,20 +1,18 @@
 import React from 'react';
-import instagram from '../assets/images/instagram.svg';
-import twitter from '../assets/images/twitter.svg';
-import youtube from '../assets/images/youtube.svg';
+import { FaYoutube, FaTwitter, FaInstagram } from 'react-icons/fa';
 
 export default function Footer() {
   return (
     <footer>
       <div className='social'>
         <a href='#'>
-          <img src={instagram} />
+          <FaInstagram />
         </a>
         <a href='#'>
-          <img src={twitter} />
+          <FaTwitter />
         </a>
         <a href='#'>
-          <img src={youtube} />
+          <FaYoutube />
         </a>
       </div>
     </footer>

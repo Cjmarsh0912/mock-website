@@ -5,7 +5,6 @@ export default function ShopItem({
   product,
   productQuantity,
   updateQuantity,
-  buttonText,
   addToCart,
 }) {
   return (
@@ -42,7 +41,7 @@ export default function ShopItem({
           />
         </div>
         <button onClick={() => addToCart(product)} className='button'>
-          {buttonText}
+          Add to Cart
         </button>
       </div>
     </article>

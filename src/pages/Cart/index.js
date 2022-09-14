@@ -1,9 +1,8 @@
 import React from 'react';
+import { FaPlus, FaMinus } from 'react-icons/fa';
+import { AiFillDelete } from 'react-icons/ai';
 import { Link } from 'react-router-dom';
 import Header from '../../components/Header';
-import increment from '../../assets/images/increment.svg';
-import decrement from '../../assets/images/decrement.svg';
-import deleted from '../../assets/images/delete.svg';
 
 export default function Cart({
   cartQuantity,
@@ -17,13 +16,24 @@ export default function Cart({
     <>
       <Header active='none' />
       <main id={cartQuantity == 0 ? 'cart' : ''}>
+        <section
+          style={{ padding: '0 2em', marginTop: '4em' }}
+          className='header'
+        >
+          <div className='container'>
+            <h3>Shopping Cart</h3>
+          </div>
+        </section>
         {cartQuantity == 0 && (
           <section className='cart-empty'>
-            <h3>Shopping Cart</h3>
-            <p>You have nothing in your shopping cart!</p>
-            <Link to='/shop' className='button'>
-              Continue Shopping
-            </Link>
+            <div className='container'>
+              <p>You have nothing in your shopping cart!</p>
+            </div>
+            <div className='container'>
+              <Link to='/shop' className='button'>
+                Continue Shopping
+              </Link>
+            </div>
           </section>
         )}
 
@@ -31,48 +41,52 @@ export default function Cart({
           <>
             <section className='cart-item-container'>
               {items.map((item) => {
-                console.log(item);
                 if (item.quantity > 0) {
                   return (
                     <article key={item.id} className='cart-item'>
                       <div className='cart-item-name'>
-                        <div className='cart-item-img-container'>
+                        <div className='cart-item-img-container container'>
                           <div
                             style={{ backgroundImage: `url(${item.image})` }}
                             className='cart-item-img'
                           ></div>
                         </div>
-                        <h3>{item.name}</h3>
+                        <span className='container'>
+                          <h3>{item.name}</h3>
+                        </span>
                       </div>
                       <div className='increment-decrement'>
                         <button
+                          className='cart-btn decrement'
                           onClick={() => handleDecrement(item)}
-                          className='decrement'
                         >
-                          <img src={decrement} />
+                          <span className='icon-container container'>
+                            <FaMinus />
+                          </span>
                         </button>
-                        <span className='cart-item-number'>
+                        <span className='cart-item-number container'>
                           {item.quantity}
                         </span>
                         <button
+                          className='cart-btn increment'
                           onClick={() => handleIncrement(item)}
-                          className='increment'
                         >
-                          <img src={increment} />
+                          <span className='icon-container container'>
+                            <FaPlus />
+                          </span>
                         </button>
                       </div>
                       <div className='cart-item-price'>
-                        <span className='cart-item-full-price'>
+                        <span className='cart-item-full-price container'>
                           ${item.fullPrice()}
                         </span>
                         <button
+                          className='cart-btn delete'
                           onClick={() => handleDelete(item)}
-                          className='delete'
                         >
-                          <img
-                            style={{ width: '100%', height: '100%' }}
-                            src={deleted}
-                          />
+                          <span className='icon-container container'>
+                            <AiFillDelete />
+                          </span>
                         </button>
                       </div>
                     </article>

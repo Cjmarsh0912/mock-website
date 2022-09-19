@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.css": "/mock-website/static/css/main.e7ba32dc.css",
-    "main.js": "/mock-website/static/js/main.537ed44e.js",
-    "static/media/apple pie.jpg": "/mock-website/static/media/apple pie.b5a84591e0365cae021d.jpg",
+    "main.css": "/mock-website/static/css/main.1d8afb1c.css",
+    "main.js": "/mock-website/static/js/main.6f1bf0cd.js",
+    "static/media/applePie.jpg": "/mock-website/static/media/applePie.d36011b11126c5122f3a.jpg",
     "static/media/brownies.jpg": "/mock-website/static/media/brownies.72de9d18190fa425abe0.jpg",
     "static/media/loaf cake.jpg": "/mock-website/static/media/loaf cake.50d2a2c2c04d6af89fd0.jpg",
     "static/media/pecan pie.jpg": "/mock-website/static/media/pecan pie.4869d55b143690c579e0.jpg",
@@ -15,11 +15,11 @@
     "static/media/oreo cupcakes.jpg": "/mock-website/static/media/oreo cupcakes.63b0c2559765e5357293.jpg",
     "static/media/doughnuts.jpg": "/mock-website/static/media/doughnuts.cf1503d6c3f56cb5f42a.jpg",
     "index.html": "/mock-website/index.html",
-    "main.e7ba32dc.css.map": "/mock-website/static/css/main.e7ba32dc.css.map",
-    "main.537ed44e.js.map": "/mock-website/static/js/main.537ed44e.js.map"
+    "main.1d8afb1c.css.map": "/mock-website/static/css/main.1d8afb1c.css.map",
+    "main.6f1bf0cd.js.map": "/mock-website/static/js/main.6f1bf0cd.js.map"
   },
   "entrypoints": [
-    "static/css/main.e7ba32dc.css",
-    "static/js/main.537ed44e.js"
+    "static/css/main.1d8afb1c.css",
+    "static/js/main.6f1bf0cd.js"
   ]
 }

@@ -105,22 +105,22 @@ function App() {
   };
 
   useEffect(() => {
-    const retrieveItems = JSON.parse(localStorage.getItem('items')).map(
-      (obj) => {
-        return {
-          ...obj,
-          fullPrice: function () {
-            return (Number(this.price) * this.quantity).toFixed(2);
-          },
-        };
-      }
-    );
+    const retrieveItems = JSON.parse(localStorage.getItem('items'));
     const retrieveCartQuantity = JSON.parse(
       localStorage.getItem('cartQuantity')
     );
     const retrieveFullPrice = JSON.parse(localStorage.getItem('fullPrice'));
     if (retrieveCartQuantity > 0) {
-      setItems(retrieveItems);
+      setItems(
+        retrieveItems.map((obj) => {
+          return {
+            ...obj,
+            fullPrice: function () {
+              return (Number(this.price) * this.quantity).toFixed(2);
+            },
+          };
+        })
+      );
       setCartQuantity(retrieveCartQuantity);
       setFullPrice(retrieveFullPrice);
     }

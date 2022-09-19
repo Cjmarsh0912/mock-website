@@ -1,5 +1,5 @@
 import React from 'react';
-import apple_pie from '../../assets/images/apple pie.jpg';
+import apple_pie from '../../assets/images/applePie.jpg';
 import brownies from '../../assets/images/brownies.jpg';
 import cake from '../../assets/images/cake.jpg';
 import cheesecake from '../../assets/images/cheesecake.jpg';

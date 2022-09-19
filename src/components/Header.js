@@ -19,6 +19,7 @@ export default function Header(props) {
   const showMobileNavbar = () => {
     ResponsiveNavRef.current.classList.toggle('responsive-nav');
     HeaderRef.current.classList.toggle('toggle');
+    document.body.classList.toggle('no-scroll');
   };
 
   return (
@@ -88,7 +89,6 @@ export default function Header(props) {
             </div>
           </div>
         </header>
-
         <nav className='mobile-navbar-nav'>
           <div className='site-links'>
             <Link

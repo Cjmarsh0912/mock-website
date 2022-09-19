@@ -7,20 +7,27 @@ import Contact from './pages/Contact/index';
 import Shop from './pages/Shop/index';
 import Cart from './pages/Cart/index';
 import shopData from './data/shopItems.json';
+import cookbook from '../src/assets/images/cookbook.jpg';
+import brownies from '../src/assets/images/brownies.jpg';
+import applePie from '../src/assets/images/applePie.jpg';
 import './assets/App.css';
 
 export const CartQuantityContext = React.createContext();
 
 function App() {
+  const itemImages = [cookbook, applePie, brownies];
   const shopItems = shopData.shopItems.map((obj) => {
     return {
       ...obj,
+      image: itemImages[obj.id],
       fullPrice: function () {
         return (Number(this.price) * this.quantity).toFixed(2);
       },
     };
   });
-  const [items, setItems] = useState(shopItems);
+  const [items, setItems] = useState(() => {
+    return shopItems;
+  });
   const [cartQuantity, setCartQuantity] = useState(0);
   const [fullPrice, setFullPrice] = useState('0.00');
 
@@ -44,14 +51,13 @@ function App() {
     e.preventDefault();
   };
 
-  const handleClick = (log) => {
+  const handleAddToCart = (log) => {
     const newState = items.map((obj) => {
       if (obj.id === log.id) {
         const newQuantity = obj.quantity + Number(log.quantity);
         return {
           ...obj,
           quantity: newQuantity,
-          image: log.image,
         };
       }
       return obj;
@@ -99,9 +105,35 @@ function App() {
   };
 
   useEffect(() => {
+    const retrieveItems = JSON.parse(localStorage.getItem('items')).map(
+      (obj) => {
+        return {
+          ...obj,
+          fullPrice: function () {
+            return (Number(this.price) * this.quantity).toFixed(2);
+          },
+        };
+      }
+    );
+    const retrieveCartQuantity = JSON.parse(
+      localStorage.getItem('cartQuantity')
+    );
+    const retrieveFullPrice = JSON.parse(localStorage.getItem('fullPrice'));
+    if (retrieveCartQuantity > 0) {
+      setItems(retrieveItems);
+      setCartQuantity(retrieveCartQuantity);
+      setFullPrice(retrieveFullPrice);
+    }
+  }, []);
+
+  useEffect(() => {
     setCartQuantity(getCartQuantity(items));
     setFullPrice(getFullPrice(items));
-  }, [items]);
+
+    localStorage.setItem('items', JSON.stringify(items));
+    localStorage.setItem('cartQuantity', JSON.stringify(cartQuantity));
+    localStorage.setItem('fullPrice', JSON.stringify(fullPrice));
+  }, [items, cartQuantity]);
 
   return (
     <>
@@ -119,18 +151,20 @@ function App() {
             />
             <Route
               path='shop'
-              element={<Shop shopItems={items} handleClick={handleClick} />}
+              element={
+                <Shop shopItems={items} handleAddToCart={handleAddToCart} />
+              }
             />
             <Route
               path='cart'
               element={
                 <Cart
-                  cartQuantity={cartQuantity}
                   items={items}
+                  cartQuantity={cartQuantity}
+                  fullPrice={fullPrice}
                   handleDecrement={handleDecrement}
                   handleIncrement={handleIncrement}
                   handleDelete={handleDelete}
-                  fullPrice={fullPrice}
                 />
               }
             />

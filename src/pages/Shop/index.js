@@ -1,12 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import Header from '../../components/Header';
 import ShopItem from './ShopItem';
-import cookbook from '../../assets/images/cookbook.jpg';
-import brownies from '../../assets/images/brownies.jpg';
 
-export default function Shop({ handleClick, shopItems }) {
+export default function Shop({ handleAddToCart, shopItems }) {
   const [quantity, setQuantity] = useState('1');
-  const itemImages = [cookbook, brownies];
+  document.body.classList.remove('no-scroll');
 
   const updateQuantity = (e) => {
     setQuantity(e.target.value);
@@ -20,9 +18,8 @@ export default function Shop({ handleClick, shopItems }) {
       const newItem = {
         id: item.id,
         quantity: quantity,
-        image: itemImages[item.id],
       };
-      handleClick(newItem);
+      handleAddToCart(newItem);
       setQuantity('1');
       alert('Added to cart');
     }
@@ -36,7 +33,6 @@ export default function Shop({ handleClick, shopItems }) {
             return (
               <ShopItem
                 key={item.id}
-                productImage={itemImages[id]}
                 product={item}
                 productQuantity={quantity}
                 updateQuantity={updateQuantity}

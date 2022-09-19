@@ -1,7 +1,6 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 export default function ShopItem({
-  productImage,
   product,
   productQuantity,
   updateQuantity,
@@ -12,7 +11,7 @@ export default function ShopItem({
       <div className='item-img'>
         <img
           style={{ height: '100%', maxWidth: 'inherit' }}
-          src={productImage}
+          src={product.image}
         />
       </div>
       <div className='item-description'>

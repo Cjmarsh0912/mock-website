@@ -5,13 +5,14 @@ import { Link } from 'react-router-dom';
 import Header from '../../components/Header';
 
 export default function Cart({
-  cartQuantity,
   items,
+  cartQuantity,
+  fullPrice,
   handleDecrement,
   handleIncrement,
   handleDelete,
-  fullPrice,
 }) {
+  document.body.classList.remove('no-scroll');
   return (
     <>
       <Header active='none' />
@@ -64,8 +65,12 @@ export default function Cart({
                             <FaMinus />
                           </span>
                         </button>
-                        <span className='cart-item-number container'>
-                          {item.quantity}
+                        <span className='container'>
+                          <input
+                            className='cart-item-number'
+                            readOnly
+                            value={item.quantity}
+                          />
                         </span>
                         <button
                           className='cart-btn increment'

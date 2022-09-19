@@ -1,4 +1,4 @@
-/* @import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@200;400&display=swap'); */
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@200;400&display=swap');
 
 /* Table of Contents: 
   1. General Styles 
@@ -258,7 +258,7 @@ nav .social {
 .post-header p {
   max-width: 75ch;
   font-size: 1.1rem;
-  font-weight: 100;
+  font-weight: 300;
   margin: auto;
 }
 
@@ -344,6 +344,10 @@ nav .social {
   place-items: center;
   text-align: center;
   color: white;
+}
+
+.form-header {
+  display: block;
 }
 
 .form-header > * {
@@ -581,6 +585,10 @@ nav .social {
   .shop-item {
     flex-wrap: wrap;
   }
+
+  .item-details {
+    max-width: 100%;
+  }
 }
 
 /*  End Shop */
@@ -653,6 +661,9 @@ nav .social {
   margin-right: 10em;
   display: flex;
   gap: 1em;
+  justify-content: center;
+  align-items: center;
+  height: max-content;
 }
 
 .cart-btn {
@@ -664,12 +675,12 @@ nav .social {
 
 .container {
   display: flex;
-  padding: 0.5em;
+  padding: 0.5rem;
 }
 
 .icon-container {
   border-radius: 50%;
-  font-size: 1.1rem;
+  font-size: 1rem;
 }
 
 .icon-container:hover {
@@ -678,6 +689,10 @@ nav .social {
 
 .cart-item-number {
   font-size: 1.2rem;
+  width: 2rem;
+  background-color: transparent;
+  text-align: center;
+  border: none;
 }
 
 .cart-item-price {
@@ -685,6 +700,11 @@ nav .social {
   gap: 1.5em;
   width: 15ch;
   font-size: 1.2rem;
+  border: none;
+  height: max-content;
+  background-color: initial;
+  justify-content: center;
+  align-items: center;
 }
 
 @media screen and (max-width: 800px) {

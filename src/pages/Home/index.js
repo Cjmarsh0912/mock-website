@@ -4,6 +4,7 @@ import RecentPosts from './RecentPosts';
 import oreo_cupcake from '../../assets/images/oreo cupcakes.jpg';
 
 export default function Home({ handleSubmit }) {
+  document.body.classList.remove('no-scroll');
   return (
     <>
       <Header active='blog' />

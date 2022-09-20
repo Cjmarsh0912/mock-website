@@ -188,6 +188,7 @@ nav .social {
     flex-direction: column;
     gap: 1rem;
     background-color: #ffb4a2;
+    z-index: 1;
   }
 }
 
@@ -790,15 +791,6 @@ footer .social a > * {
   bottom: 0;
   left: 0;
   right: 0;
-}
-
-@media screen and (max-width: 650px) {
-  #cart + footer {
-    position: static;
-    bottom: initial;
-    left: initial;
-    right: initial;
-  }
 }
 
 /*  End Footer */

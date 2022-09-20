@@ -23,7 +23,12 @@ export default function RecentPosts() {
       <div className='recent-posts-container'>
         <article className='post'>
           <a className='post-img' href='#'>
-            <img style={{ height: '28rem' }} src={apple_pie} alt='apple pie' />
+            <img
+              style={{ height: '28rem' }}
+              src={apple_pie}
+              alt='apple pie'
+              loading='lazy'
+            />
           </a>
           <time className='post-date'>3/10/21</time>
           <h3 className='post-name'>
@@ -40,7 +45,12 @@ export default function RecentPosts() {
 
         <article className='post'>
           <a className='post-img' href='#'>
-            <img style={{ height: '33.5rem' }} src={brownies} alt='brownies' />
+            <img
+              style={{ height: '33.5rem' }}
+              src={brownies}
+              alt='brownies'
+              loading='lazy'
+            />
           </a>
           <time className='post-date'>3/15/21</time>
           <h3 className='post-name'>
@@ -57,7 +67,12 @@ export default function RecentPosts() {
 
         <article className='post'>
           <a className='post-img' href='#'>
-            <img style={{ height: '28rem' }} src={cake} alt='cake' />
+            <img
+              style={{ height: '28rem' }}
+              src={cake}
+              alt='cake'
+              loading='lazy'
+            />
           </a>
           <time className='post-date'>3/09/21</time>
           <h3 className='post-name'>
@@ -78,6 +93,7 @@ export default function RecentPosts() {
               style={{ height: '15rem' }}
               src={cheesecake}
               alt='cheesecake'
+              loading='lazy'
             />
           </a>
           <time className='post-date'>4/01/21</time>
@@ -99,6 +115,7 @@ export default function RecentPosts() {
               style={{ height: '33.4rem' }}
               src={doughnuts}
               alt='doughnuts'
+              loading='lazy'
             />
           </a>
           <time className='post-date'>4/12/21</time>
@@ -120,6 +137,7 @@ export default function RecentPosts() {
               style={{ height: '33.5rem' }}
               src={loaf_cake}
               alt='loaf cake'
+              loading='lazy'
             />
           </a>
           <time className='post-date'>4/16/21</time>
@@ -137,7 +155,12 @@ export default function RecentPosts() {
 
         <article className='post'>
           <a className='post-img' href='#'>
-            <img style={{ height: '33.4rem' }} src={pancake} alt='pancake' />
+            <img
+              style={{ height: '33.4rem' }}
+              src={pancake}
+              alt='pancake'
+              loading='lazy'
+            />
           </a>
           <time className='post-date'>4/16/21</time>
           <h3 className='post-name'>
@@ -158,6 +181,7 @@ export default function RecentPosts() {
               style={{ height: '33.4rem' }}
               src={pecan_pie}
               alt='pecan pie'
+              loading='lazy'
             />
           </a>
           <time className='post-date'>4/20/21</time>
@@ -175,7 +199,12 @@ export default function RecentPosts() {
 
         <article className='post'>
           <a className='post-img' href='#'>
-            <img style={{ height: '28rem' }} src={tiramisu} alt='tiramisu' />
+            <img
+              style={{ height: '28rem' }}
+              src={tiramisu}
+              alt='tiramisu'
+              loading='lazy'
+            />
           </a>
           <time className='post-date'>5/01/21</time>
           <h3 className='post-name'>

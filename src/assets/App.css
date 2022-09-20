@@ -65,7 +65,7 @@ p {
 
 /* 2. Header */
 
-header {
+.navbar {
   display: flex;
 }
 
@@ -121,6 +121,7 @@ nav .social {
 
 .mobile-navbar {
   display: none;
+  padding: 1.5em 2em;
 }
 
 @media screen and (max-width: 650px) {
@@ -144,7 +145,11 @@ nav .social {
     overflow: hidden;
   }
 
-  .mobile-navbar-nav {
+  .responsive-nav-header {
+    display: flex;
+  }
+
+  .responsive-nav-navbar {
     display: flex;
     flex-direction: column;
     gap: 1.2em;
@@ -165,7 +170,7 @@ nav .social {
     margin: auto;
   }
 
-  .mobile-navbar-nav .social {
+  .responsive-nav-navbar .social {
     display: flex;
   }
 
@@ -183,7 +188,6 @@ nav .social {
     flex-direction: column;
     gap: 1rem;
     background-color: #ffb4a2;
-    z-index: 1;
   }
 }
 

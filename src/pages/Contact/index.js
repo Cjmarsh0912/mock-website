@@ -29,13 +29,13 @@ export default function Contact({ handleSubmit }) {
             <h3>123 Demo Street</h3>
             <h3>New York, NY 12345</h3>
             <div className='social'>
-              <a href='#'>
+              <a aria-label='Instagram' href='#'>
                 <FaInstagram />
               </a>
-              <a href='#'>
+              <a aria-label='Twitter' href='#'>
                 <FaTwitter />
               </a>
-              <a href='#'>
+              <a aria-label='Youtube' href='#'>
                 <FaYoutube />
               </a>
             </div>

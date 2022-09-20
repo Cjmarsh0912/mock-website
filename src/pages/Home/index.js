@@ -14,6 +14,7 @@ export default function Home({ handleSubmit }) {
             <img
               style={{ height: '100%', maxWidth: '100%' }}
               src={oreo_cupcake}
+              alt='oreo cupcake'
             />
           </div>
           <div className='blog-description'>

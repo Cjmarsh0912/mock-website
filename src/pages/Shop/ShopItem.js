@@ -12,6 +12,7 @@ export default function ShopItem({
         <img
           style={{ height: '100%', maxWidth: 'inherit' }}
           src={product.image}
+          alt={product.name}
         />
       </div>
       <div className='item-description'>

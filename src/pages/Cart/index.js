@@ -58,6 +58,7 @@ export default function Cart({
                       </div>
                       <div className='increment-decrement'>
                         <button
+                          aria-label='Minus'
                           className='cart-btn decrement'
                           onClick={() => handleDecrement(item)}
                         >
@@ -73,6 +74,7 @@ export default function Cart({
                           />
                         </span>
                         <button
+                          aria-label='Plus'
                           className='cart-btn increment'
                           onClick={() => handleIncrement(item)}
                         >
@@ -86,6 +88,7 @@ export default function Cart({
                           ${item.fullPrice()}
                         </span>
                         <button
+                          aria-label='Delete'
                           className='cart-btn delete'
                           onClick={() => handleDelete(item)}
                         >

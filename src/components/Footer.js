@@ -5,13 +5,13 @@ export default function Footer() {
   return (
     <footer>
       <div className='social'>
-        <a href='#'>
+        <a aria-label='Instagram' href='#'>
           <FaInstagram />
         </a>
-        <a href='#'>
+        <a aria-label='Twitter' href='#'>
           <FaTwitter />
         </a>
-        <a href='#'>
+        <a aria-label='Youtube' href='#'>
           <FaYoutube />
         </a>
       </div>

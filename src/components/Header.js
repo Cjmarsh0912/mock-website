@@ -78,7 +78,6 @@ export default function Header(props) {
             </div>
           </div>
         </div>
-
         <div className='mobile-navbar' ref={ResponsiveNavRef}>
           <div className='responsive-nav-header'>
             <button

@@ -1,4 +1,4 @@
-import React, { useContext, useRef } from 'react';
+import React, { useRef } from 'react';
 import {
   FaYoutube,
   FaTwitter,
@@ -7,16 +7,14 @@ import {
   FaBars,
   FaTimes,
 } from 'react-icons/fa';
-import { Link } from 'react-router-dom';
-import { CartQuantityContext } from '../App';
+import { NavLink } from 'react-router-dom';
 
 export default function Header(props) {
-  const active = props.active;
-  const cartQuantity = useContext(CartQuantityContext);
+  const cartQuantity = props.cartQuantity;
   const ResponsiveNavRef = useRef();
   const HeaderRef = useRef();
 
-  const showMobileNavbar = () => {
+  const toggleMobileNavbar = () => {
     ResponsiveNavRef.current.classList.toggle('responsive-nav');
     HeaderRef.current.classList.toggle('toggle');
     document.body.classList.toggle('no-scroll');
@@ -28,34 +26,22 @@ export default function Header(props) {
         <div ref={HeaderRef} className='navbar'>
           <button
             aria-label='Bars'
-            onClick={showMobileNavbar}
+            onClick={toggleMobileNavbar}
             className='nav-btn'
           >
             <FaBars />
           </button>
           <h2 style={{ marginRight: 'auto' }}>
-            <Link to='/mock-website'>Redmond</Link>
+            <NavLink className='no-underline' to='/mock-website'>
+              Redmond
+            </NavLink>
           </h2>
           <nav>
             <div className='site-links'>
-              <Link
-                className={active == 'blog' ? 'active' : ''}
-                to='/mock-website'
-              >
-                Blog
-              </Link>
-              <Link className={active == 'about' ? 'active' : ''} to='/about'>
-                About
-              </Link>
-              <Link
-                className={active == 'contact' ? 'active' : ''}
-                to='/contact'
-              >
-                Contact
-              </Link>
-              <Link className={active == 'shop' ? 'active' : ''} to='/shop'>
-                Shop
-              </Link>
+              <NavLink to='/mock-website'>Blog</NavLink>
+              <NavLink to='/about/'>About</NavLink>
+              <NavLink to='/contact/'>Contact</NavLink>
+              <NavLink to='/shop/'>Shop</NavLink>
             </div>
             <div className='social'>
               <a aria-label='Instagram' className='social-link' href='#'>
@@ -70,30 +56,46 @@ export default function Header(props) {
             </div>
           </nav>
           <div className='cart-icon-container'>
-            <Link aria-label='Cart' className='cart-icon' to='/cart'>
+            <NavLink
+              aria-label='Cart'
+              className='cart-icon no-underline'
+              to='/cart/'
+            >
               <FaShoppingCart />
-            </Link>
+            </NavLink>
             <div className='cart-quantity-container'>
               <span className='cart-quantity'>{cartQuantity}</span>
             </div>
           </div>
         </div>
+
         <div className='mobile-navbar' ref={ResponsiveNavRef}>
           <div className='responsive-nav-header'>
             <button
               aria-label='Close'
-              onClick={showMobileNavbar}
+              onClick={toggleMobileNavbar}
               className='nav-btn'
             >
               <FaTimes />
             </button>
             <h2 style={{ marginRight: 'auto' }}>
-              <Link to='/mock-website'>Redmond</Link>
+              <NavLink
+                onClick={toggleMobileNavbar}
+                className='no-underline'
+                to='/mock-website'
+              >
+                Redmond
+              </NavLink>
             </h2>
             <div className='cart-icon-container'>
-              <Link aria-label='Cart' className='cart-icon' to='/cart'>
+              <NavLink
+                onClick={toggleMobileNavbar}
+                aria-label='Cart'
+                className='cart-icon no-underline'
+                to='/cart/'
+              >
                 <FaShoppingCart />
-              </Link>
+              </NavLink>
               <div className='cart-quantity-container'>
                 <span className='cart-quantity'>{cartQuantity}</span>
               </div>
@@ -101,24 +103,18 @@ export default function Header(props) {
           </div>
           <nav className='responsive-nav-navbar'>
             <div className='site-links'>
-              <Link
-                className={active == 'blog' ? 'active' : ''}
-                to='/mock-website'
-              >
+              <NavLink onClick={toggleMobileNavbar} to='/mock-website'>
                 Blog
-              </Link>
-              <Link className={active == 'about' ? 'active' : ''} to='/about'>
+              </NavLink>
+              <NavLink onClick={toggleMobileNavbar} to='/about/'>
                 About
-              </Link>
-              <Link
-                className={active == 'contact' ? 'active' : ''}
-                to='/contact'
-              >
+              </NavLink>
+              <NavLink onClick={toggleMobileNavbar} to='/contact/'>
                 Contact
-              </Link>
-              <Link className={active == 'shop' ? 'active' : ''} to='/shop'>
+              </NavLink>
+              <NavLink onClick={toggleMobileNavbar} to='/shop/'>
                 Shop
-              </Link>
+              </NavLink>
             </div>
             <div className='social'>
               <a aria-label='Instagram' className='social-link' href='#'>

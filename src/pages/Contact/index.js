@@ -1,12 +1,8 @@
-import React from 'react';
-import Header from '../../components/Header';
 import { FaYoutube, FaTwitter, FaInstagram } from 'react-icons/fa';
 
 export default function Contact({ handleSubmit }) {
-  document.body.classList.remove('no-scroll');
   return (
     <>
-      <Header active='contact' />
       <main>
         <section className='contact'>
           <div className='contact-header'>

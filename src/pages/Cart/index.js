@@ -1,8 +1,6 @@
-import React from 'react';
 import { FaPlus, FaMinus } from 'react-icons/fa';
 import { AiFillDelete } from 'react-icons/ai';
 import { Link } from 'react-router-dom';
-import Header from '../../components/Header';
 
 export default function Cart({
   items,
@@ -12,10 +10,8 @@ export default function Cart({
   handleIncrement,
   handleDelete,
 }) {
-  document.body.classList.remove('no-scroll');
   return (
     <>
-      <Header active='none' />
       <main id={cartQuantity == 0 ? 'cart' : ''}>
         <section
           style={{ padding: '0 2em', marginTop: '4em' }}

@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@200;400&display=swap');
 
-/* Table of Contents: 
+/** Table of Contents: 
   1. General Styles 
   2. Header
   3. Home
@@ -11,7 +11,7 @@
   8. Footer
 */
 
-/*  1. General Styles */
+/**  1. General Styles */
 
 * {
   box-sizing: border-box;
@@ -63,7 +63,11 @@ p {
   width: 100%;
 }
 
-/* 2. Header */
+.no-underline {
+  border-bottom: none !important;
+}
+
+/** 2. Header */
 
 .navbar {
   display: flex;
@@ -117,7 +121,7 @@ nav .social {
   font-size: 1rem;
 }
 
-/* Header mobile */
+/** Header mobile */
 
 .mobile-navbar {
   display: none;
@@ -192,11 +196,11 @@ nav .social {
   }
 }
 
-/*  End Header */
+/**  End Header */
 
-/*  3. Home */
+/**  3. Home */
 
-/*  3.1. blog header */
+/**  3.1. blog header */
 
 .blog-header {
   display: flex;
@@ -244,7 +248,7 @@ nav .social {
   }
 }
 
-/* 3.2. recent posts */
+/** 3.2. recent posts */
 
 .post-header {
   margin: auto;
@@ -332,7 +336,7 @@ nav .social {
   }
 }
 
-/*  3.3. newsletter */
+/**  3.3. newsletter */
 
 .newsletter-form-container {
   height: 600px;
@@ -385,9 +389,9 @@ nav .social {
   }
 }
 
-/*  End Home */
+/**  End Home */
 
-/*  4. About */
+/**  4. About */
 
 .about-container {
   display: flex;
@@ -423,18 +427,22 @@ nav .social {
   .about-container > * {
     flex: 1 1 100%;
   }
+
+  .about-description > * {
+    max-width: 100% !important;
+  }
 }
 
-/*  End About */
+/**  End About */
 
-/*  5. Contact */
+/**  5. Contact */
 
 .contact {
   margin: auto;
   width: 50%;
 }
 
-/*  5.1. contact header */
+/**  5.1. contact header */
 
 .contact-header {
   margin-top: 5em;
@@ -474,7 +482,7 @@ nav .social {
   }
 }
 
-/*  5.2. contact form */
+/**  5.2. contact form */
 
 .contact-form-container {
   margin-top: 5em;
@@ -519,9 +527,9 @@ nav .social {
   border: none;
 }
 
-/*  End Contact */
+/**  End Contact */
 
-/*  6. Shop */
+/**  6. Shop */
 
 .shop-items {
   margin-top: 8em;
@@ -596,9 +604,9 @@ nav .social {
   }
 }
 
-/*  End Shop */
+/**  End Shop */
 
-/*  7. Cart */
+/**  7. Cart */
 
 .header > .container,
 .cart-empty > .container {
@@ -610,7 +618,7 @@ nav .social {
   font-size: 1.5rem;
 }
 
-/*  7.1 cart empty */
+/**  7.1 cart empty */
 
 .cart-empty {
   display: flex;
@@ -626,7 +634,7 @@ nav .social {
   width: 15rem;
 }
 
-/*  7.2 cart item */
+/**  7.2 cart item */
 
 .cart-item {
   display: flex;
@@ -734,7 +742,7 @@ nav .social {
   }
 }
 
-/*  7.3 checkout */
+/**  7.3 checkout */
 
 .checkout {
   width: 25em;
@@ -767,9 +775,9 @@ nav .social {
   }
 }
 
-/*  End Cart */
+/**  End Cart */
 
-/*  8. Footer */
+/**  8. Footer */
 
 footer {
   display: grid;
@@ -793,4 +801,4 @@ footer .social a > * {
   right: 0;
 }
 
-/*  End Footer */
+/**  End Footer */

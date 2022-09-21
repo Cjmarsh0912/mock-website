@@ -1,12 +1,8 @@
-import React from 'react';
-import Header from '../../components/Header';
 import cheesecake from '../../assets/images/cheesecake.jpg';
 
 export default function About() {
-  document.body.classList.remove('no-scroll');
   return (
     <>
-      <Header active='about' />
       <main>
         <section className='about-container'>
           <div className='about-description'>

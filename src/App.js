@@ -1,18 +1,17 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Navbar from './components/Navbar';
 import Footer from './components/Footer';
-import Home from './pages/Home/index';
-import About from './pages/About/index';
-import Contact from './pages/Contact/index';
-import Shop from './pages/Shop/index';
-import Cart from './pages/Cart/index';
+import Home from './pages/Home/';
+import About from './pages/About/';
+import Contact from './pages/Contact/';
+import Shop from './pages/Shop/';
+import Cart from './pages/Cart/';
 import shopData from './data/shopItems.json';
 import cookbook from '../src/assets/images/cookbook.jpg';
 import brownies from '../src/assets/images/brownies.jpg';
 import applePie from '../src/assets/images/applePie.jpg';
 import './assets/App.css';
-
-export const CartQuantityContext = React.createContext();
 
 function App() {
   const itemImages = [cookbook, applePie, brownies];
@@ -137,41 +136,40 @@ function App() {
 
   return (
     <>
-      <CartQuantityContext.Provider value={cartQuantity}>
-        <BrowserRouter>
-          <Routes>
-            <Route
-              path='/mock-website'
-              element={<Home handleSubmit={handleSubmit} />}
-            />
-            <Route path='about' element={<About />} />
-            <Route
-              path='contact'
-              element={<Contact handleSubmit={handleSubmit} />}
-            />
-            <Route
-              path='shop'
-              element={
-                <Shop shopItems={items} handleAddToCart={handleAddToCart} />
-              }
-            />
-            <Route
-              path='cart'
-              element={
-                <Cart
-                  items={items}
-                  cartQuantity={cartQuantity}
-                  fullPrice={fullPrice}
-                  handleDecrement={handleDecrement}
-                  handleIncrement={handleIncrement}
-                  handleDelete={handleDelete}
-                />
-              }
-            />
-          </Routes>
-          <Footer />
-        </BrowserRouter>
-      </CartQuantityContext.Provider>
+      <BrowserRouter>
+        <Navbar cartQuantity={cartQuantity} />
+        <Routes>
+          <Route
+            path='/mock-website'
+            element={<Home handleSubmit={handleSubmit} />}
+          />
+          <Route path='/about/' element={<About />} />
+          <Route
+            path='/contact/'
+            element={<Contact handleSubmit={handleSubmit} />}
+          />
+          <Route
+            path='/shop/'
+            element={
+              <Shop shopItems={items} handleAddToCart={handleAddToCart} />
+            }
+          />
+          <Route
+            path='/cart/'
+            element={
+              <Cart
+                items={items}
+                cartQuantity={cartQuantity}
+                fullPrice={fullPrice}
+                handleDecrement={handleDecrement}
+                handleIncrement={handleIncrement}
+                handleDelete={handleDelete}
+              />
+            }
+          />
+        </Routes>
+        <Footer />
+      </BrowserRouter>
     </>
   );
 }

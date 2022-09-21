@@ -1,10 +1,8 @@
-import React, { useState } from 'react';
-import Header from '../../components/Header';
+import { useState } from 'react';
 import ShopItem from './ShopItem';
 
 export default function Shop({ handleAddToCart, shopItems }) {
   const [quantity, setQuantity] = useState('1');
-  document.body.classList.remove('no-scroll');
 
   const updateQuantity = (e) => {
     setQuantity(e.target.value);
@@ -26,7 +24,6 @@ export default function Shop({ handleAddToCart, shopItems }) {
   };
   return (
     <>
-      <Header active='shop' />
       <main>
         <section className='shop-items'>
           {shopItems.map((item, id) => {

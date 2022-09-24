@@ -1,11 +1,13 @@
+import styles from './contact.module.css';
+
 import { FaYoutube, FaTwitter, FaInstagram } from 'react-icons/fa';
 
 export default function Contact({ handleSubmit }) {
   return (
     <>
       <main>
-        <section className='contact'>
-          <div className='contact-header'>
+        <section className={styles.contact}>
+          <div className={styles.contact_header}>
             <h2>Get In Touch</h2>
             <p>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
@@ -17,14 +19,14 @@ export default function Contact({ handleSubmit }) {
               sunt in culpa qui officia deserunt mollit anim id est laborum.
             </p>
           </div>
-          <div className='contact-info'>
+          <div className={styles.contact_info}>
             <h3>email@example.com</h3>
             <h3>(555) 555-5555</h3>
           </div>
           <div className='address-social'>
             <h3>123 Demo Street</h3>
             <h3>New York, NY 12345</h3>
-            <div className='social'>
+            <div className={styles.social}>
               <a aria-label='Instagram' href='#'>
                 <FaInstagram />
               </a>
@@ -37,16 +39,16 @@ export default function Contact({ handleSubmit }) {
             </div>
           </div>
 
-          <div className='contact-form-container'>
+          <div className={styles.contact_form_container}>
             <form
               action='#'
-              id='contact-form'
+              id={styles['contact_form']}
               method='post'
               onSubmit={handleSubmit}
             >
-              <fieldset className='full-name'>
-                <legend className='title'>Name *</legend>
-                <label className='contact-form-input' htmlFor='fname'>
+              <fieldset className={styles.full_name}>
+                <legend className={styles.title}>Name *</legend>
+                <label className={styles.contact_form_input} htmlFor='fname'>
                   <input
                     style={{ width: '100%' }}
                     name='fname'
@@ -54,9 +56,9 @@ export default function Contact({ handleSubmit }) {
                     type='text'
                     required
                   />
-                  <span className='name'>First name</span>
+                  <span className={styles.name}>First name</span>
                 </label>
-                <label className='contact-form-input' htmlFor='lname'>
+                <label className={styles.contact_form_input} htmlFor='lname'>
                   <input
                     style={{ width: '100%' }}
                     name='lname'
@@ -64,18 +66,18 @@ export default function Contact({ handleSubmit }) {
                     type='text'
                     required
                   />
-                  <span className='name'>Last name</span>
+                  <span className={styles.name}>Last name</span>
                 </label>
               </fieldset>
-              <div className='contact-form-input'>
+              <div className={styles.contact_form_input}>
                 <label htmlFor='email'>Email *</label>
                 <input name='email' id='email' type='email' required />
               </div>
-              <div className='contact-form-input'>
+              <div className={styles.contact_form_input}>
                 <label htmlFor='message'>Message *</label>
-                <textarea id='message' required></textarea>
+                <textarea id={styles['message']} required></textarea>
               </div>
-              <button type='submit' className='button submit'>
+              <button type='submit' className='button'>
                 Send
               </button>
             </form>

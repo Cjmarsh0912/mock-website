@@ -1,0 +1,167 @@
+.cart_header > .container,
+.cart_empty > .container {
+  padding-bottom: 0;
+  padding-top: 0;
+}
+
+.cart_header > .container > h3 {
+  font-size: 1.5rem;
+}
+
+/**  7.1 cart empty */
+
+.cart_empty {
+  display: flex;
+  flex-direction: column;
+  gap: 2em;
+}
+
+.cart_empty p {
+  font-size: 1.1rem;
+}
+
+.cart_empty .button {
+  width: 15rem;
+}
+
+/**  7.2 cart item */
+
+.cart_item {
+  display: flex;
+  border-bottom: hsla(0, 0%, 39%, 0.2) solid 2px;
+  padding-bottom: 2em;
+  margin-bottom: 5em;
+  position: relative;
+}
+
+.cart_item_name {
+  margin-right: auto;
+  display: flex;
+  gap: 2em;
+}
+
+.cart_item_name h3 {
+  max-width: clamp(5rem, -242.5rem + 1200vw, 20rem);
+  font-size: clamp(1rem, -0.5833rem + 6.6667vw, 1.5rem);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.cart_item_img_container {
+  width: clamp(4rem, -6.6667rem + 21.3333vw, 8rem);
+  height: clamp(4rem, -6.6667rem + 21.3333vw, 8rem);
+}
+
+.cart_item_img {
+  width: 100%;
+  height: 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.increment_decrement {
+  margin-right: 10em;
+  display: flex;
+  gap: 1em;
+  justify-content: center;
+  align-items: center;
+  height: max-content;
+}
+
+.cart_btn {
+  border: none;
+  height: max-content;
+  background-color: initial;
+  cursor: pointer;
+}
+
+.container {
+  display: flex;
+  padding: 0.5rem;
+}
+
+.icon_container {
+  border-radius: 50%;
+  font-size: 1rem;
+}
+
+.icon_container:hover {
+  background-color: white;
+}
+
+.cart_item_number {
+  font-size: 1.2rem;
+  width: 2rem;
+  background-color: transparent;
+  text-align: center;
+  border: none;
+}
+
+.cart_item_price {
+  display: flex;
+  gap: 1.5em;
+  width: 15ch;
+  font-size: 1.2rem;
+  border: none;
+  height: max-content;
+  background-color: initial;
+  justify-content: center;
+  align-items: center;
+}
+
+@media screen and (max-width: 845px) {
+  .cart_item_name {
+    margin-bottom: 1em;
+    gap: 0.5em;
+  }
+
+  .increment_decrement {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+  }
+
+  .cart_item_full_price {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+  }
+
+  .delete {
+    margin-left: auto;
+  }
+}
+
+/**  7.3 checkout */
+
+.checkout {
+  width: 25em;
+  margin-left: auto;
+  margin-right: 5em;
+}
+
+.subtotal {
+  display: flex;
+  width: inherit;
+}
+
+.subtotal > * {
+  font-size: 1.4rem;
+}
+
+.full_price {
+  margin-left: auto;
+}
+
+.checkout_btn {
+  width: inherit;
+  margin-top: 2em;
+}
+
+@media screen and (max-width: 950px) {
+  .checkout {
+    width: 100%;
+    margin: initial;
+  }
+}

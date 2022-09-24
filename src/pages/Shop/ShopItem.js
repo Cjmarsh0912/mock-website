@@ -1,3 +1,5 @@
+import styles from './shop.module.css';
+
 export default function ShopItem({
   product,
   productQuantity,
@@ -5,20 +7,20 @@ export default function ShopItem({
   addToCart,
 }) {
   return (
-    <article className='shop-item'>
-      <div className='item-img'>
+    <article className={styles.shop_item}>
+      <div className={styles.item_img_container}>
         <img
           style={{ height: '100%', maxWidth: 'inherit' }}
           src={product.image}
           alt={product.name}
         />
       </div>
-      <div className='item-description'>
+      <div className={styles.item_description}>
         <h1>{product.name}</h1>
-        <div className='item-price-container'>
-          <span className='item-price'>${product.price}</span>
+        <div className={styles.item_price_container}>
+          <span className={styles.item_price}>${product.price}</span>
         </div>
-        <p className='item-details'>
+        <p className={styles.item_details}>
           Lorem ipsum dolor sit, amet consectetur adipisicing elit. Rem impedit
           ea iusto voluptatum facere, at, numquam eveniet iste aliquam maiores
           repudiandae ratione placeat ad. Quisquam numquam tenetur ea, enim
@@ -26,10 +28,10 @@ export default function ShopItem({
           impedit vel assumenda aliquid, ab reprehenderit. Amet impedit
           molestias nihil quibusdam consectetur.
         </p>
-        <div className='item-quantity'>
-          <span className='item-quantity-lable'>Quantity:</span>
+        <div className={styles.item_quantity}>
+          <span className={styles.item_quantity_label}>Quantity:</span>
           <input
-            id='quantity'
+            id={styles['quantity']}
             value={productQuantity}
             type='number'
             step='1'

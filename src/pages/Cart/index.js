@@ -1,3 +1,5 @@
+import styles from './cart.module.css';
+
 import { FaPlus, FaMinus } from 'react-icons/fa';
 import { AiFillDelete } from 'react-icons/ai';
 import { Link } from 'react-router-dom';
@@ -13,20 +15,20 @@ export default function Cart({
   return (
     <>
       <main id={cartQuantity == 0 ? 'cart' : ''}>
-        <section
+        <header
           style={{ padding: '0 2em', marginTop: '4em' }}
-          className='header'
+          className={styles.cart_header}
         >
-          <div className='container'>
+          <div className={styles.container}>
             <h3>Shopping Cart</h3>
           </div>
-        </section>
+        </header>
         {cartQuantity == 0 && (
-          <section className='cart-empty'>
-            <div className='container'>
+          <section className={styles.cart_empty}>
+            <div className={styles.container}>
               <p>You have nothing in your shopping cart!</p>
             </div>
-            <div className='container'>
+            <div className={styles.container}>
               <Link to='/shop' className='button'>
                 Continue Shopping
               </Link>
@@ -36,59 +38,69 @@ export default function Cart({
 
         {cartQuantity > 0 && (
           <>
-            <section className='cart-item-container'>
+            <section className={styles.cart_item_container}>
               {items.map((item) => {
                 if (item.quantity > 0) {
                   return (
-                    <article key={item.id} className='cart-item'>
-                      <div className='cart-item-name'>
-                        <div className='cart-item-img-container container'>
+                    <article key={item.id} className={styles.cart_item}>
+                      <div className={styles.cart_item_name}>
+                        <div
+                          className={`${styles.cart_item_img_container} ${styles.container}`}
+                        >
                           <div
                             style={{ backgroundImage: `url(${item.image})` }}
-                            className='cart-item-img'
+                            className={styles.cart_item_img}
                           ></div>
                         </div>
-                        <span className='container'>
+                        <span className={styles.container}>
                           <h3>{item.name}</h3>
                         </span>
                       </div>
-                      <div className='increment-decrement'>
+                      <div className={styles.increment_decrement}>
                         <button
                           aria-label='Minus'
-                          className='cart-btn decrement'
+                          className={`${styles.cart_btn} decrement`}
                           onClick={() => handleDecrement(item)}
                         >
-                          <span className='icon-container container'>
+                          <span
+                            className={`${styles.icon_container} ${styles.container}`}
+                          >
                             <FaMinus />
                           </span>
                         </button>
-                        <span className='container'>
+                        <span className={styles.container}>
                           <input
-                            className='cart-item-number'
+                            className={styles.cart_item_number}
                             readOnly
                             value={item.quantity}
                           />
                         </span>
                         <button
                           aria-label='Plus'
-                          className='cart-btn increment'
+                          className={`${styles.cart_btn} increment`}
                           onClick={() => handleIncrement(item)}
                         >
-                          <span className='icon-container container'>
+                          <span
+                            className={`${styles.icon_container} ${styles.container}`}
+                          >
                             <FaPlus />
                           </span>
                         </button>
                       </div>
-                      <div className='cart-item-price'>
-                        <span className='cart-item-full-price container'>
+                      <div className={styles.cart_item_price}>
+                        <span
+                          className={`${styles.cart_item_full_price} ${styles.container}`}
+                        >
                           ${item.fullPrice()}
                         </span>
                         <button
                           aria-label='Delete'
-                          className='cart-btn delete'
+                          className={`${styles.cart_btn} ${styles.delete}`}
                           onClick={() => handleDelete(item)}
                         >
-                          <span className='icon-container container'>
+                          <span
+                            className={`${styles.icon_container} ${styles.container}`}
+                          >
                             <AiFillDelete />
                           </span>
                         </button>
@@ -98,12 +110,14 @@ export default function Cart({
                 }
               })}
             </section>
-            <section className='checkout'>
-              <div className='subtotal'>
+            <section className={styles.checkout}>
+              <div className={styles.subtotal}>
                 <p>Subtotal:</p>
-                <span className='full-price'>${fullPrice}</span>
+                <span className={styles.full_price}>${fullPrice}</span>
               </div>
-              <button className='button checkout-btn'>Checkout</button>
+              <button className={`${styles.checkout_btn} button`}>
+                Checkout
+              </button>
             </section>
           </>
         )}

@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import { useRef } from 'react';
 import {
   FaYoutube,
   FaTwitter,
@@ -8,6 +8,7 @@ import {
   FaTimes,
 } from 'react-icons/fa';
 import { NavLink } from 'react-router-dom';
+import styles from './navbar.module.css';
 
 export default function Header(props) {
   const cartQuantity = props.cartQuantity;
@@ -15,94 +16,90 @@ export default function Header(props) {
   const HeaderRef = useRef();
 
   const toggleMobileNavbar = () => {
-    ResponsiveNavRef.current.classList.toggle('responsive-nav');
-    HeaderRef.current.classList.toggle('toggle');
-    document.body.classList.toggle('no-scroll');
+    ResponsiveNavRef.current.classList.toggle(styles.responsive_nav);
+    HeaderRef.current.classList.toggle(styles.toggle);
+    document.body.classList.toggle(styles.no_scroll);
   };
 
   return (
     <>
       <header>
-        <div ref={HeaderRef} className='navbar'>
+        <div ref={HeaderRef} className={styles.navbar}>
           <button
             aria-label='Bars'
             onClick={toggleMobileNavbar}
-            className='nav-btn'
+            className={styles.nav_btn}
           >
             <FaBars />
           </button>
-          <h2 style={{ marginRight: 'auto' }}>
+          <h2 className={styles.site_name}>
             <NavLink className='no-underline' to='/mock-website'>
               Redmond
             </NavLink>
           </h2>
           <nav>
-            <div className='site-links'>
+            <div className={styles.site_links}>
               <NavLink to='/mock-website'>Blog</NavLink>
               <NavLink to='/about/'>About</NavLink>
               <NavLink to='/contact/'>Contact</NavLink>
               <NavLink to='/shop/'>Shop</NavLink>
             </div>
-            <div className='social'>
-              <a aria-label='Instagram' className='social-link' href='#'>
+            <div className={styles.social}>
+              <a aria-label='Instagram' className={styles.social_link} href='#'>
                 <FaInstagram />
               </a>
-              <a aria-label='Twitter' className='social-link' href='#'>
+              <a aria-label='Twitter' className={styles.social_link} href='#'>
                 <FaTwitter />
               </a>
-              <a aria-label='Youtube' className='social-link' href='#'>
+              <a aria-label='Youtube' className={styles.social_link} href='#'>
                 <FaYoutube />
               </a>
             </div>
           </nav>
-          <div className='cart-icon-container'>
-            <NavLink
-              aria-label='Cart'
-              className='cart-icon no-underline'
-              to='/cart/'
-            >
+          <div className={styles.cart_icon_container}>
+            <NavLink aria-label='Cart' className={styles.cart_icon} to='/cart/'>
               <FaShoppingCart />
             </NavLink>
-            <div className='cart-quantity-container'>
-              <span className='cart-quantity'>{cartQuantity}</span>
+            <div className={styles.cart_quantity_container}>
+              <span className={styles.cart_quantity}>{cartQuantity}</span>
             </div>
           </div>
         </div>
 
-        <div className='mobile-navbar' ref={ResponsiveNavRef}>
-          <div className='responsive-nav-header'>
+        <div className={styles.mobile_navbar} ref={ResponsiveNavRef}>
+          <div className={styles.responsive_nav_header}>
             <button
               aria-label='Close'
               onClick={toggleMobileNavbar}
-              className='nav-btn'
+              className={styles.nav_btn}
             >
               <FaTimes />
             </button>
-            <h2 style={{ marginRight: 'auto' }}>
+            <h2 className={styles.site_name}>
               <NavLink
-                onClick={toggleMobileNavbar}
                 className='no-underline'
+                onClick={toggleMobileNavbar}
                 to='/mock-website'
               >
                 Redmond
               </NavLink>
             </h2>
-            <div className='cart-icon-container'>
+            <div className={styles.cart_icon_container}>
               <NavLink
                 onClick={toggleMobileNavbar}
                 aria-label='Cart'
-                className='cart-icon no-underline'
+                className={styles.cart_icon}
                 to='/cart/'
               >
                 <FaShoppingCart />
               </NavLink>
-              <div className='cart-quantity-container'>
-                <span className='cart-quantity'>{cartQuantity}</span>
+              <div className={styles.cart_quantity_container}>
+                <span className={styles.cart_quantity}>{cartQuantity}</span>
               </div>
             </div>
           </div>
-          <nav className='responsive-nav-navbar'>
-            <div className='site-links'>
+          <nav className={styles.responsive_nav_navbar}>
+            <div className={styles.site_links}>
               <NavLink onClick={toggleMobileNavbar} to='/mock-website'>
                 Blog
               </NavLink>
@@ -116,14 +113,14 @@ export default function Header(props) {
                 Shop
               </NavLink>
             </div>
-            <div className='social'>
-              <a aria-label='Instagram' className='social-link' href='#'>
+            <div className={styles.social}>
+              <a aria-label='Instagram' className={styles.social_link} href='#'>
                 <FaInstagram />
               </a>
-              <a aria-label='Twitter' className='social-link' href='#'>
+              <a aria-label='Twitter' className={styles.social_link} href='#'>
                 <FaTwitter />
               </a>
-              <a aria-label='Youtube' className='social-link' href='#'>
+              <a aria-label='Youtube' className={styles.social_link} href='#'>
                 <FaYoutube />
               </a>
             </div>

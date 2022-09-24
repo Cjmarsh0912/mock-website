@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import ShopItem from './ShopItem';
+import styles from './shop.module.css';
 
 export default function Shop({ handleAddToCart, shopItems }) {
   const [quantity, setQuantity] = useState('1');
@@ -25,8 +26,8 @@ export default function Shop({ handleAddToCart, shopItems }) {
   return (
     <>
       <main>
-        <section className='shop-items'>
-          {shopItems.map((item, id) => {
+        <section className={styles.shop_items}>
+          {shopItems.map((item) => {
             return (
               <ShopItem
                 key={item.id}

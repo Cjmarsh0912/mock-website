@@ -1,11 +1,13 @@
+import styles from './about.module.css';
+
 import cheesecake from '../../assets/images/cheesecake.jpg';
 
 export default function About() {
   return (
     <>
       <main>
-        <section className='about-container'>
-          <div className='about-description'>
+        <section className={styles.about_container}>
+          <div className={styles.about_description}>
             <h2>
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam
               enim, fugit magni alias omnis praesentium vitae perferendis
@@ -32,7 +34,7 @@ export default function About() {
               Morbi vitae ultrices velit. Sed molestie consectetur metus.
             </p>
           </div>
-          <div className='about-img'>
+          <div className={styles.about_img}>
             <img
               style={{ height: '100%', width: '100%' }}
               src={cheesecake}

@@ -1,0 +1,39 @@
+.about_container {
+  display: flex;
+  white-space: pre-wrap;
+  gap: 2.5em;
+}
+
+.about_description h2 {
+  font-size: clamp(1.3rem, -0.0333rem + 4.2667vw, 2.1rem);
+  max-width: 35ch;
+}
+
+.about_description p {
+  max-width: 65ch;
+  font-size: clamp(1rem, -0.6rem + 3.2vw, 1.2rem);
+}
+
+.about_description > * {
+  margin-bottom: 1.5em;
+  line-height: 1.4em;
+}
+
+.about_img {
+  height: clamp(20rem, -0.2rem + 64.64vw, 40.2rem);
+  width: 40%;
+}
+
+@media screen and (max-width: 800px) {
+  .about_container {
+    flex-wrap: wrap;
+  }
+
+  .about_container > * {
+    flex: 1 1 100%;
+  }
+
+  .about_description > * {
+    max-width: 100% !important;
+  }
+}

@@ -50,6 +50,7 @@ function App() {
     e.preventDefault();
   };
 
+  // Adds the specified item and item quantity to the cart
   const handleAddToCart = (log) => {
     const newState = items.map((obj) => {
       if (obj.id === log.id) {
@@ -64,6 +65,7 @@ function App() {
     setItems(newState);
   };
 
+  // Decreases the quantity of a specified item in the cart
   const handleDecrement = (log) => {
     const newState = items.map((obj) => {
       if (obj.id === log.id && log.quantity !== 1) {
@@ -77,6 +79,7 @@ function App() {
     setItems(newState);
   };
 
+  // Increases the quantity of a specified item in the cart
   const handleIncrement = (log) => {
     const newState = items.map((obj) => {
       if (obj.id === log.id) {
@@ -90,6 +93,7 @@ function App() {
     setItems(newState);
   };
 
+  // Deletes a specified item from the cart
   const handleDelete = (log) => {
     const newState = items.map((obj) => {
       if (obj.id === log.id) {
@@ -103,6 +107,7 @@ function App() {
     setItems(newState);
   };
 
+  // Retrieves items that were in the cart before reloading or closing website
   useEffect(() => {
     const retrieveItems = JSON.parse(localStorage.getItem('items'));
     const retrieveCartQuantity = JSON.parse(
@@ -125,6 +130,7 @@ function App() {
     }
   }, []);
 
+  // Saves items to cart for next visit
   useEffect(() => {
     setCartQuantity(getCartQuantity(items));
     setFullPrice(getFullPrice(items));

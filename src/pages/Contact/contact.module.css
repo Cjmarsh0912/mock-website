@@ -1,0 +1,89 @@
+.contact {
+  margin: auto;
+  width: 50%;
+}
+
+/**  5.1. contact header */
+
+.contact_header {
+  margin-top: 5em;
+}
+
+.contact_header h2 {
+  font-size: clamp(0.1rem, 50vw, 2.5rem);
+}
+
+.contact_header p {
+  font-size: 1.1rem;
+  margin: 2.5em auto;
+  line-height: 1.7em;
+}
+
+.contact_info {
+  margin-bottom: 2.5em;
+}
+
+.contact_info h3 {
+  font-size: 1.3rem;
+}
+
+.social {
+  display: flex;
+  gap: 1em;
+}
+
+.social > * {
+  font-size: 1.5rem;
+}
+
+@media screen and (max-width: 850px) {
+  .contact {
+    margin: initial;
+    width: 100%;
+  }
+}
+
+/**  5.2. contact form */
+
+.contact_form_container {
+  margin-top: 5em;
+  margin-bottom: 2em;
+}
+
+#contact_form {
+  display: flex;
+  gap: 1.5em;
+  flex-direction: column;
+  width: 100%;
+}
+
+#contact_form input {
+  padding: 0.8em;
+  border: none;
+}
+
+#contact_form .button {
+  width: 8em;
+}
+
+.contact_form_input {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.full_name {
+  display: flex;
+  border: none;
+  gap: 1.5em;
+}
+
+.name {
+  font-size: 0.9rem;
+}
+
+#message {
+  flex: 1 1 10em;
+  resize: none;
+  border: none;
+}

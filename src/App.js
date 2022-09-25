@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import Home from './pages/Home/';
@@ -7,10 +8,12 @@ import About from './pages/About/';
 import Contact from './pages/Contact/';
 import Shop from './pages/Shop/';
 import Cart from './pages/Cart/';
+
 import shopData from './data/shopItems.json';
 import cookbook from '../src/assets/images/cookbook.jpg';
 import brownies from '../src/assets/images/brownies.jpg';
 import applePie from '../src/assets/images/applePie.jpg';
+
 import './assets/App.css';
 
 function App() {

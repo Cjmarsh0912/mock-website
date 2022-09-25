@@ -1,6 +1,7 @@
+import RecentPosts from './RecentPosts';
+
 import styles from './home.module.css';
 
-import RecentPosts from './RecentPosts';
 import oreo_cupcake from '../../assets/images/oreo cupcakes.jpg';
 
 export default function Home({ handleSubmit }) {

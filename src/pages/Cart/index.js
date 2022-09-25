@@ -2,7 +2,7 @@ import styles from './cart.module.css';
 
 import { FaPlus, FaMinus } from 'react-icons/fa';
 import { AiFillDelete } from 'react-icons/ai';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 export default function Cart({
   items,
@@ -14,7 +14,7 @@ export default function Cart({
 }) {
   return (
     <>
-      <main id={cartQuantity == 0 ? 'cart' : ''}>
+      <main id={cartQuantity === 0 ? 'cart' : ''}>
         <header
           style={{ padding: '0 2em', marginTop: '4em' }}
           className={styles.cart_header}
@@ -29,9 +29,9 @@ export default function Cart({
               <p>You have nothing in your shopping cart!</p>
             </div>
             <div className={styles.container}>
-              <Link to='/shop' className='button'>
+              <NavLink to='/shop/' className='button'>
                 Continue Shopping
-              </Link>
+              </NavLink>
             </div>
           </section>
         )}

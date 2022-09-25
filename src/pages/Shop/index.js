@@ -1,5 +1,7 @@
 import { useState } from 'react';
+
 import ShopItem from './ShopItem';
+
 import styles from './shop.module.css';
 
 export default function Shop({ handleAddToCart, shopItems }) {

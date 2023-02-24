@@ -1,3 +1,9 @@
+# Mock Website
+
+Tech Stack: React, CSS
+
+Mock design for a e-commerce website with the ability to add, update, and delete items from a cart.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

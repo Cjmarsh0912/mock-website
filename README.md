@@ -3,6 +3,7 @@
 Tech Stack: React, CSS
 
 Mock design for a e-commerce website with the ability to add, update, and delete items from a cart.
+#
 
 # Getting Started with Create React App
 

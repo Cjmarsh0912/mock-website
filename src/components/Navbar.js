@@ -33,13 +33,13 @@ export default function Header(props) {
             <FaBars />
           </button>
           <h2 className={styles.site_name}>
-            <NavLink className='no-underline' to='/mock-website'>
+            <NavLink className='no-underline' to='/'>
               Redmond
             </NavLink>
           </h2>
           <nav>
             <div className={styles.site_links}>
-              <NavLink to='/mock-website'>Blog</NavLink>
+              <NavLink to='/'>Blog</NavLink>
               <NavLink to='/about/'>About</NavLink>
               <NavLink to='/contact/'>Contact</NavLink>
               <NavLink to='/shop/'>Shop</NavLink>
@@ -79,7 +79,7 @@ export default function Header(props) {
               <NavLink
                 className='no-underline'
                 onClick={toggleMobileNavbar}
-                to='/mock-website'
+                to='/'
               >
                 Redmond
               </NavLink>
@@ -100,7 +100,7 @@ export default function Header(props) {
           </div>
           <nav className={styles.responsive_nav_navbar}>
             <div className={styles.site_links}>
-              <NavLink onClick={toggleMobileNavbar} to='/mock-website'>
+              <NavLink onClick={toggleMobileNavbar} to='/'>
                 Blog
               </NavLink>
               <NavLink onClick={toggleMobileNavbar} to='/about/'>

@@ -148,10 +148,7 @@ function App() {
       <BrowserRouter>
         <Navbar cartQuantity={cartQuantity} />
         <Routes>
-          <Route
-            path='/mock-website'
-            element={<Home handleSubmit={handleSubmit} />}
-          />
+          <Route path='/' element={<Home handleSubmit={handleSubmit} />} />
           <Route path='/about/' element={<About />} />
           <Route
             path='/contact/'

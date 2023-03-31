@@ -1,13 +1,13 @@
 import styles from './contact.module.css';
 
-export default function Form({ handleSubmit }) {
+export default function Form() {
   return (
     <div className={styles.contact_form_container}>
       <form
         action='#'
         id={styles['contact_form']}
         method='post'
-        onSubmit={handleSubmit}
+        onSubmit={(e) => e.preventDefault()}
       >
         <fieldset className={styles.full_name}>
           <legend className={styles.title}>Name *</legend>

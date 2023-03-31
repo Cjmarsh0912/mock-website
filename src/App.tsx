@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback, useMemo } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 import Navbar from './components/Navbar';
@@ -14,111 +14,105 @@ import cookbook from '../src/assets/images/cookbook.jpg';
 import brownies from '../src/assets/images/brownies.jpg';
 import applePie from '../src/assets/images/applePie.jpg';
 
+import { ShopData } from './interface/interface';
+
 import './assets/App.css';
 
 function App() {
-  const itemImages = [cookbook, applePie, brownies];
-  const shopItems = shopData.shopItems.map((obj) => {
-    return {
-      ...obj,
-      image: itemImages[obj.id],
-      fullPrice: function () {
-        return (Number(this.price) * this.quantity).toFixed(2);
-      },
-    };
-  });
-  const [items, setItems] = useState(() => {
-    return shopItems;
-  });
-  const [cartQuantity, setCartQuantity] = useState(0);
-  const [fullPrice, setFullPrice] = useState('0.00');
-
-  function getCartQuantity(obj) {
-    let fullQuantity = 0;
-    obj.forEach((element) => {
-      fullQuantity += element.quantity;
+  const itemImages: string[] = [cookbook, applePie, brownies];
+  const [shopItems, setShopItems] = useState((): ShopData[] => {
+    return shopData.shopItems.map((obj) => {
+      return {
+        ...obj,
+        image: itemImages[obj.id],
+        fullPrice: function () {
+          return (Number(this.price) * this.quantity).toFixed(2);
+        },
+      };
     });
-    return fullQuantity;
-  }
+  });
 
-  function getFullPrice(obj) {
-    let fullPrice = 0;
-    obj.forEach((element) => {
-      fullPrice += Number(element.price) * element.quantity;
-    });
-    return Number(fullPrice).toFixed(2);
-  }
+  const cartQuantity: number = useMemo(
+    () => shopItems.reduce((total, value) => total + value.quantity, 0),
+    [shopItems]
+  );
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-  };
+  const fullPrice: number = useMemo(
+    () =>
+      shopItems.reduce(
+        (total, value) => total + Number(value.price) * value.quantity,
+        0
+      ),
+    [shopItems]
+  );
 
   // Adds the specified item and item quantity to the cart
-  const handleAddToCart = (log) => {
-    const newState = items.map((obj) => {
-      if (obj.id === log.id) {
-        const newQuantity = obj.quantity + Number(log.quantity);
+  const handleAddToCart = (shopItem: ShopData) => {
+    const newState = [...shopItems].map((item) => {
+      if (item.id === shopItem.id) {
+        const newQuantity = item.quantity + Number(shopItem.quantity);
         return {
-          ...obj,
+          ...item,
           quantity: newQuantity,
         };
       }
-      return obj;
+      return item;
     });
-    setItems(newState);
+    setShopItems(newState);
   };
 
   // Decreases the quantity of a specified item in the cart
-  const handleDecrement = (log) => {
-    const newState = items.map((obj) => {
-      if (obj.id === log.id && log.quantity !== 1) {
+  const handleDecrement = (shopItem: ShopData) => {
+    const newState = [...shopItems].map((item) => {
+      if (item.id === shopItem.id && shopItem.quantity > 1) {
         return {
-          ...obj,
-          quantity: obj.quantity - 1,
+          ...item,
+          quantity: item.quantity - 1,
         };
       }
-      return obj;
+      return item;
     });
-    setItems(newState);
+    setShopItems(newState);
   };
 
   // Increases the quantity of a specified item in the cart
-  const handleIncrement = (log) => {
-    const newState = items.map((obj) => {
-      if (obj.id === log.id) {
+  const handleIncrement = (shopItem: ShopData) => {
+    const newState = [...shopItems].map((item) => {
+      if (item.id === shopItem.id) {
         return {
-          ...obj,
-          quantity: obj.quantity + 1,
+          ...item,
+          quantity: item.quantity + 1,
         };
       }
-      return obj;
+      return item;
     });
-    setItems(newState);
+    setShopItems(newState);
   };
 
   // Deletes a specified item from the cart
-  const handleDelete = (log) => {
-    const newState = items.map((obj) => {
-      if (obj.id === log.id) {
+  const handleDelete = (shopItem: ShopData) => {
+    const newState = [...shopItems].map((item) => {
+      if (item.id === shopItem.id) {
         return {
-          ...obj,
+          ...item,
           quantity: 0,
         };
       }
-      return obj;
+      return item;
     });
-    setItems(newState);
+    setShopItems(newState);
   };
 
-  // Retrieves items that were in the cart before reloading or closing website
+  // Retrieves shopItems that were in the cart before reloading or closing website
   useEffect(() => {
-    const retrieveItems = JSON.parse(localStorage.getItem('items'));
-    const retrieveCartQuantity = JSON.parse(
-      localStorage.getItem('cartQuantity')
+    const retrieveItems: ShopData[] = JSON.parse(
+      localStorage.getItem('items')!
     );
-    const retrieveFullPrice = JSON.parse(localStorage.getItem('fullPrice'));
+    const retrieveCartQuantity: number = JSON.parse(
+      localStorage.getItem('cartQuantity')!
+    );
     if (retrieveCartQuantity > 0) {
-      setItems(
+      setShopItems(
         retrieveItems.map((obj) => {
           return {
             ...obj,
@@ -128,46 +122,34 @@ function App() {
           };
         })
       );
-      setCartQuantity(retrieveCartQuantity);
-      setFullPrice(retrieveFullPrice);
     }
   }, []);
 
-  // Saves items to cart for next visit
+  // Saves shopItems to cart for next visit
   useEffect(() => {
-    setCartQuantity(getCartQuantity(items));
-    setFullPrice(getFullPrice(items));
-
-    localStorage.setItem('items', JSON.stringify(items));
+    localStorage.setItem('items', JSON.stringify(shopItems));
     localStorage.setItem('cartQuantity', JSON.stringify(cartQuantity));
-    localStorage.setItem('fullPrice', JSON.stringify(fullPrice));
-  }, [items, cartQuantity]);
+  }, [shopItems, cartQuantity]);
 
   return (
     <>
       <BrowserRouter>
         <Navbar cartQuantity={cartQuantity} />
         <Routes>
-          <Route
-            path='/mock-website'
-            element={<Home handleSubmit={handleSubmit} />}
-          />
+          <Route path='/mock-website' element={<Home />} />
           <Route path='/about/' element={<About />} />
-          <Route
-            path='/contact/'
-            element={<Contact handleSubmit={handleSubmit} />}
-          />
+          <Route path='/contact/' element={<Contact />} />
           <Route
             path='/shop/'
             element={
-              <Shop shopItems={items} handleAddToCart={handleAddToCart} />
+              <Shop shopItems={shopItems} handleAddToCart={handleAddToCart} />
             }
           />
           <Route
             path='/cart/'
             element={
               <Cart
-                items={items}
+                shopItems={shopItems}
                 cartQuantity={cartQuantity}
                 fullPrice={fullPrice}
                 handleDecrement={handleDecrement}

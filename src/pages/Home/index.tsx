@@ -4,7 +4,7 @@ import styles from './home.module.css';
 
 import oreo_cupcake from '../../assets/images/oreo cupcakes.jpg';
 
-export default function Home({ handleSubmit }) {
+export default function Home() {
   return (
     <>
       <main>
@@ -33,7 +33,7 @@ export default function Home({ handleSubmit }) {
 
         <section className={styles.newsletter_form_container}>
           <div className={styles.newsletter_form}>
-            <form id='newsletter-form' onSubmit={handleSubmit}>
+            <form id='newsletter-form' onSubmit={(e) => e.preventDefault()}>
               <header className={styles.form_header}>
                 <h3>Get the Low Down</h3>
                 <p>Sign up with your email address to get news and updates.</p>

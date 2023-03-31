@@ -10,10 +10,14 @@ import {
 import { NavLink } from 'react-router-dom';
 import styles from './navbar.module.css';
 
-export default function Header(props) {
+type Props = {
+  cartQuantity: number;
+};
+
+export default function Header(props: Props) {
   const cartQuantity = props.cartQuantity;
-  const ResponsiveNavRef = useRef();
-  const HeaderRef = useRef();
+  const ResponsiveNavRef = useRef<HTMLDivElement>(null!);
+  const HeaderRef = useRef<HTMLDivElement>(null!);
 
   const toggleMobileNavbar = () => {
     ResponsiveNavRef.current.classList.toggle(styles.responsive_nav);

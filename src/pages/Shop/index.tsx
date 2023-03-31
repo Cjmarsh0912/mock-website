@@ -1,30 +1,17 @@
-import { useState } from 'react';
-
 import ShopItem from './ShopItem';
 
 import styles from './shop.module.css';
 
-export default function Shop({ handleAddToCart, shopItems }) {
-  const [quantity, setQuantity] = useState('1');
+import { ShopData } from '../../interface/interface';
 
-  const updateQuantity = (e) => {
-    setQuantity(e.target.value);
-  };
+type Props = {
+  handleAddToCart: (shopItem: ShopData) => void;
+  shopItems: ShopData[];
+};
 
-  const addToCart = (item) => {
-    if (quantity > 100) alert('Error: Cannot purchase more than 100 at a time');
-    else if (quantity < 1 || quantity === '')
-      alert('Error: must have a quantity greater than 0');
-    else {
-      const newItem = {
-        id: item.id,
-        quantity: quantity,
-      };
-      handleAddToCart(newItem);
-      setQuantity('1');
-      alert('Added to cart');
-    }
-  };
+export default function Shop(props: Props) {
+  const { handleAddToCart, shopItems } = props;
+
   return (
     <>
       <main>
@@ -34,9 +21,7 @@ export default function Shop({ handleAddToCart, shopItems }) {
               <ShopItem
                 key={item.id}
                 product={item}
-                productQuantity={quantity}
-                updateQuantity={updateQuantity}
-                addToCart={addToCart}
+                handleAddToCart={handleAddToCart}
               />
             );
           })}

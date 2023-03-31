@@ -4,7 +4,7 @@ import styles from './contact.module.css';
 
 import { FaYoutube, FaTwitter, FaInstagram } from 'react-icons/fa';
 
-export default function Contact({ handleSubmit }) {
+export default function Contact() {
   return (
     <>
       <main>
@@ -41,7 +41,7 @@ export default function Contact({ handleSubmit }) {
             </div>
           </div>
 
-          <Form handleSubmit={handleSubmit} />
+          <Form />
         </section>
       </main>
     </>

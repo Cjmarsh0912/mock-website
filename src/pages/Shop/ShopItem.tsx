@@ -11,7 +11,7 @@ type Props = {
 
 export default function ShopItem(props: Props) {
   const { product, handleAddToCart } = props;
-  const [quantity, setQuantity] = useState<string>('1');
+  const [quantity, setQuantity] = useState<number | string>(1);
 
   const addToCart = (shopItem: ShopData) => {
     if (Number(quantity) > 100)
@@ -24,7 +24,7 @@ export default function ShopItem(props: Props) {
         quantity: Number(quantity),
       };
       handleAddToCart(newItem);
-      setQuantity('1');
+      setQuantity(1);
       alert('Added to cart');
     }
   };

@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/mock-website/static/css/main.37ffbdac.css",
-    "main.js": "/mock-website/static/js/main.286889ca.js",
+    "main.js": "/mock-website/static/js/main.f9954762.js",
     "static/media/applePie.jpg": "/mock-website/static/media/applePie.d36011b11126c5122f3a.jpg",
     "static/media/brownies.jpg": "/mock-website/static/media/brownies.72de9d18190fa425abe0.jpg",
     "static/media/loaf cake.jpg": "/mock-website/static/media/loaf cake.50d2a2c2c04d6af89fd0.jpg",
@@ -16,10 +16,10 @@
     "static/media/doughnuts.jpg": "/mock-website/static/media/doughnuts.cf1503d6c3f56cb5f42a.jpg",
     "index.html": "/mock-website/index.html",
     "main.37ffbdac.css.map": "/mock-website/static/css/main.37ffbdac.css.map",
-    "main.286889ca.js.map": "/mock-website/static/js/main.286889ca.js.map"
+    "main.f9954762.js.map": "/mock-website/static/js/main.f9954762.js.map"
   },
   "entrypoints": [
     "static/css/main.37ffbdac.css",
-    "static/js/main.286889ca.js"
+    "static/js/main.f9954762.js"
   ]
 }
